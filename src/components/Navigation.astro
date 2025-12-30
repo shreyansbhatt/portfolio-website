@@ -1,0 +1,105 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+
+const navLinks = [
+  { href: '/', label: 'Home', section: null },
+  { href: '/#experience', label: 'Experience', section: 'experience' },
+  { href: '/#skills', label: 'Skills', section: 'skills' },
+  { href: '/#testimonials', label: 'Proof', section: 'testimonials' },
+  { href: '/blog', label: 'Blog', section: null },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-abyss/95 backdrop-blur-md border-b border-surface/50">
+  <nav class="container flex items-center justify-between h-16">
+    <!-- Logo -->
+    <a href="/" class="text-xl font-bold text-cyan-glow hover:text-cyan-dim transition-colors">
+      Shreyans<span class="text-text-muted">.dev</span>
+    </a>
+    
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex items-center gap-8">
+      {navLinks.map((link) => (
+        <a 
+          href={link.href}
+          class={`text-sm font-medium transition-colors hover:text-cyan-glow ${
+            currentPath === link.href ? 'text-cyan-glow' : 'text-text-secondary'
+          }`}
+          data-section={link.section}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+    
+    <!-- CTA -->
+    <div class="flex items-center gap-4">
+      <a 
+        href="#contact"
+        class="btn btn-primary text-sm"
+      >
+        <span>Get in Touch</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      </a>
+      
+      <!-- Mobile Menu Button -->
+      <button 
+        id="mobile-menu-btn"
+        class="md:hidden p-2 text-text-secondary hover:text-cyan-glow transition-colors"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div 
+    id="mobile-menu"
+    class="hidden md:hidden bg-depths border-t border-surface"
+  >
+    <div class="container py-4 space-y-2">
+      {navLinks.map((link) => (
+        <a 
+          href={link.href}
+          class={`block py-2 px-4 rounded-lg text-sm font-medium transition-colors hover:bg-surface hover:text-cyan-glow ${
+            currentPath === link.href ? 'text-cyan-glow bg-surface' : 'text-text-secondary'
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</header>
+
+<!-- Spacer for fixed header -->
+<div class="h-16"></div>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  menuBtn?.addEventListener('click', () => {
+    const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+    menuBtn.setAttribute('aria-expanded', (!isExpanded).toString());
+    mobileMenu?.classList.toggle('hidden');
+  });
+  
+  // Close menu on link click
+  mobileMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menuBtn?.setAttribute('aria-expanded', 'false');
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+</script>

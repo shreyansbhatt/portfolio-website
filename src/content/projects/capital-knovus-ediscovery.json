@@ -1,0 +1,50 @@
+{
+  "slug": "capital-knovus-ediscovery",
+  "clientName": "Capital Knovus - Logical Software Solution Pvt. Ltd.",
+  "displayName": "Knovos eDiscovery Platform",
+  "role": "Senior Software Engineer",
+  "startDate": "2012-05",
+  "endDate": "2013-09",
+  "engagementType": "Permanent",
+  "workMode": "Onsite",
+  "teamSize": 12,
+  "location": "Gandhinagar, India",
+  "isConfidential": false,
+  "isFeatured": false,
+  "isDraft": false,
+  "companyDescription": "Knovos (formerly Capital Novus) is a global technology firm that provides comprehensive Knowledge Management and Litigation Support services to legal, corporate, and government clientele. They offer cost-effective solutions for eDiscovery, Information Governance and Project management.",
+  "techStack": [
+    "C#",
+    ".NET Framework",
+    "Win32",
+    "WPF",
+    "Infragistics Controls",
+    "SQL Server",
+    "Big Data Integration",
+    "Solr",
+    "Full-Text Search"
+  ],
+  "skills": [
+    { "name": "C#", "rating": 9 },
+    { "name": "Win32 Development", "rating": 8 },
+    { "name": "Big Data Processing", "rating": 8 },
+    { "name": "SQL Server", "rating": 9 },
+    { "name": "Performance Optimization", "rating": 9 },
+    { "name": "Legal Tech Domain", "rating": 7 },
+    { "name": "Full-Text Search", "rating": 8 }
+  ],
+  "achievements": [
+    "Developed high-quality code for complex, high-performance eDiscovery Document Management Platform modules",
+    "Integrated Big Data implementation with .NET-based Windows application using appropriate abstractions and interfaces",
+    "Implemented highly efficient code for processing millions of records",
+    "Contributed to development of attribute-based document search system for e-discovery solutions",
+    "Helped junior developers with technical difficulties by removing technical bottlenecks",
+    "Participated in Requirement Gathering and Analysis meetings and production release activities",
+    "Developed eZREVIEW (Most Used Document Review Platform Worldwide) - Automatic Document Profiling module integrating .NET and Java algorithms",
+    "Built server-side export and notification system enabling background processing without client wait time",
+    "Created automated phrase detection for Solr integration and database search",
+    "Developed eZVUE (Efficient data culling tool) - Multiple Load Flat File Import processing 500GB+ datasets efficiently"
+  ],
+  "projectReference": "https://www.knovos.com/products/knovos-discovery/",
+  "relatedTestimonial": null
+}

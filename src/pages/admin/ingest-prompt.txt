@@ -1,0 +1,229 @@
+# PORTFOLIO DATA EXTRACTION META-PROMPT
+
+## PURPOSE
+This prompt guides an LLM to extract structured data from uploaded resume documents and generate JSON files matching the Keystatic CMS schema for Shreyans Bhatt's portfolio website.
+
+## INPUT REQUIREMENTS
+- Multiple resume files (PDF, DOCX, ODT, TXT formats)
+- LinkedIn profile data (if available)
+- Cyron MVP Skills Assessment document
+
+## OUTPUT FORMAT
+Generate JSON files matching these exact schemas:
+
+---
+
+## 1. PROFILE SINGLETON (src/content/profile/main.json)
+
+Extract and synthesize:
+- `name`: Full legal name
+- `title`: Most senior/current role title
+- `tagline`: Synthesize a compelling one-liner from professional summary
+- `email`: Primary contact email
+- `phone`: Contact number (optional)
+- `avatarImage`: Path if available, else null
+- `location`: Current city, country
+- `timezone`: Derive from location (e.g., "UTC+5:30" for India)
+- `availabilityStatus`: Default to "Open to Discuss"
+- `openTo`: Extract from resume preferences or default to ["Contract", "Full-time", "Advisory"]
+- `workModes`: Extract or default to ["Remote", "Hybrid"]
+- `socialLinks`: Extract all social URLs
+  - linkedin, github, twitter, medium
+- `aspirations`: Synthesize 3-5 career goals from experience trajectory
+  - Each: { goal, timeline: "Immediate"|"Strategic"|"Visionary", icon }
+- `bio`: Extended professional summary in MDX
+
+---
+
+## 2. PROJECTS COLLECTION (src/content/projects/*.json)
+
+For EACH work experience entry, extract:
+
+```json
+{
+  "slug": "kebab-case-company-name-yyyy",
+  "clientName": "Company Name",
+  "displayName": null, // or masked name if confidential
+  "role": "Job Title",
+  "startDate": "YYYY-MM",
+  "endDate": "YYYY-MM" or "Present",
+  "engagementType": "Permanent" or "Contract",
+  "workMode": "Remote" or "Hybrid" or "Onsite",
+  "teamSize": number or null,
+  "location": "City, Country",
+  "isConfidential": false, // true for NDA-bound clients
+  "isFeatured": true/false, // mark top 5-6 as featured
+  "isDraft": false,
+  "companyDescription": "Brief company description",
+  "techStack": ["Tech1", "Tech2", ...],
+  "skills": [
+    { "name": "Skill Name", "rating": 1-10 } // PROJECT-SPECIFIC depth
+  ],
+  "achievements": ["Achievement 1", "Achievement 2", ...],
+  "projectReference": "URL if available"
+}
+```
+
+### SKILL RATING GUIDELINES (Project-Specific Depth)
+- 9-10: Primary technology, architectural decisions, mentoring others
+- 7-8: Deep hands-on implementation, complex features
+- 5-6: Moderate usage, standard implementations
+- 3-4: Supporting technology, light usage
+- 1-2: Minimal exposure, awareness level
+
+### UNION RULE
+When multiple resumes describe the same project with different details:
+- UNION all achievements (deduplicate)
+- UNION all tech stack items
+- Take the MAXIMUM skill rating for overlapping skills
+- Prefer the more detailed description
+
+---
+
+## 3. EXTRACTION PRIORITY ORDER
+
+Parse documents in this order, layering data:
+1. `Shreyans_Bhatt_Resume_0125.txt` (most recent, primary source)
+2. `Shreyans_Bhatt_SSA_ATS_Resume.odt` (detailed, senior architect focus)
+3. `Shreyans_Bhatt_Solution_Architect_Resume.pdf`
+4. `Shreyans_Bhatt_SA-TL_Resume-6.pdf`
+5. `Shreyans_Bhatt_Resume.docx`
+6. `Shreyans_Bhatt_DOTNETPRO119.docx` (legacy, for early career)
+7. `Cyron_MVP_Developer_Skills_Assessment.docx` (side project skills)
+
+---
+
+## 4. PROJECT MAPPING (Company Name Normalization)
+
+Normalize company names across documents:
+- "GlobalLogic - A Hitachi Company" / "GlobalLogic" → "globallogic-wood-mackenzie-2024"
+- "Viseo Asia Pte Ltd" / "VISEO" → "viseo-mas-2024"
+- "LogicSense Technologies" → Multiple projects split by client
+- "Unient" / "Unient India" / "Unient Philippines" → "unient-onestop-2021"
+- "UWorld India Pvt Ltd" → "uworld-b2b-2020"
+- "Milestone Inc" → "milestone-schema-manager-2019"
+- "H&R Block India" → "hrblock-silverlight-migration-2017"
+- "XDocWorks (Reeleezee)" / "Reeleezee" → "reeleezee-accounting-2013"
+- "Capital Knovus" / "Logical Software Solution" → "knovos-ediscovery-2012"
+- "eConsultants Networks" / "eCN India" → "econsultants-erp-2010"
+
+Additional projects from LogicSense:
+- "InstaFlo HealthTech" → "instaflo-healthtech-2022"
+- "ENTERCLINIC" (LogicSense product) → "logicsense-enterclinic-2013"
+
+Side Projects:
+- "Cyron Intelligence" → "cyron-api-security-2024" (mark isConfidential: true)
+
+---
+
+## 5. FEATURED PROJECT CRITERIA
+
+Mark `isFeatured: true` for:
+1. Current role (GlobalLogic/Wood Mackenzie)
+2. Government/High-profile clients (MAS Singapore)
+3. Award-winning projects (H&R Block, UWorld)
+4. AI/ML projects (Milestone Schema Manager)
+5. Security-focused projects (MAS, Cyron)
+6. One early-career highlight (Capital Knovus eDiscovery)
+
+---
+
+## 6. CERTIFICATIONS TO HIGHLIGHT
+
+Extract and structure:
+- CEH (Certified Ethical Hacker) - EC-Council - ECC0235961487
+- ML Specialization (Stanford/DeepLearning.AI via Coursera)
+- Concurrency in Go (UC Irvine via Coursera)
+- Data Science A-Z (Udemy)
+
+---
+
+## 7. ASPIRATIONS SYNTHESIS
+
+Based on career trajectory, synthesize:
+
+```json
+[
+  {
+    "goal": "Lead enterprise-scale platform modernization initiatives",
+    "timeline": "Immediate",
+    "icon": "🏗️"
+  },
+  {
+    "goal": "Build AI-powered cybersecurity products (Cyron)",
+    "timeline": "Strategic",
+    "icon": "🛡️"
+  },
+  {
+    "goal": "Contribute to open-source security tooling",
+    "timeline": "Strategic",
+    "icon": "🔓"
+  },
+  {
+    "goal": "Transition to CTO/VP Engineering role at a growth-stage startup",
+    "timeline": "Visionary",
+    "icon": "🚀"
+  },
+  {
+    "goal": "Author technical book on enterprise architecture patterns",
+    "timeline": "Visionary",
+    "icon": "📖"
+  }
+]
+```
+
+---
+
+## 8. OUTPUT FILE STRUCTURE
+
+```
+src/content/
+├── profile/
+│   └── main.json
+├── projects/
+│   ├── globallogic-wood-mackenzie-2024.json
+│   ├── viseo-mas-2024.json
+│   ├── logicsense-unient-loreal-2021.json
+│   ├── instaflo-healthtech-2022.json
+│   ├── uworld-b2b-2020.json
+│   ├── milestone-schema-manager-2019.json
+│   ├── hrblock-silverlight-migration-2017.json
+│   ├── logicsense-enterclinic-2013.json
+│   ├── reeleezee-accounting-2013.json
+│   ├── knovos-ediscovery-2012.json
+│   ├── econsultants-erp-2010.json
+│   └── cyron-api-security-2024.json
+├── testimonials/
+│   └── (empty - add manually with screenshots)
+└── blogs/
+    └── (empty - author manually)
+```
+
+---
+
+## 9. VALIDATION CHECKLIST
+
+Before finalizing, verify:
+- [ ] All dates are in YYYY-MM format
+- [ ] All slugs are kebab-case
+- [ ] All skill ratings are 0-10 integers
+- [ ] Tech stack items are capitalized consistently
+- [ ] No duplicate projects
+- [ ] Featured projects are marked (5-6 max)
+- [ ] Profile social links are valid URLs
+- [ ] Achievements are quantified where possible (%, numbers)
+
+---
+
+## 10. EXECUTION COMMAND
+
+After generating all JSON files, run:
+```bash
+# Validate JSON syntax
+find src/content -name "*.json" -exec jsonlint {} \;
+
+# Start Keystatic admin
+npm run keystatic
+```
+
+Access admin at http://localhost:4321/keystatic to review and refine.

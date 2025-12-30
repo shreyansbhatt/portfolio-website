@@ -1,0 +1,76 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import HeroSection from '@/components/HeroSection.astro';
+import ExperienceSection from '@/components/ExperienceSection.astro';
+import SkillsSection from '@/components/SkillsSection.astro';
+import TestimonialsSection from '@/components/TestimonialsSection.astro';
+import ContactModal from '@/components/ContactModal.astro';
+
+// Import Keystatic reader
+import { createReader } from '@keystatic/core/reader';
+import keystaticConfig from '../../keystatic.config';
+
+export const prerender = true;
+
+// Read content from Keystatic
+const reader = createReader(process.cwd(), keystaticConfig);
+
+const profile = await reader.singletons.profile.read();
+const projectsData = await reader.collections.projects.all();
+const testimonialsData = await reader.collections.testimonials.all();
+
+// Filter and transform projects
+const projects = projectsData
+  .filter((p) => !p.entry.isDraft)
+  .map((p) => ({
+    slug: p.slug,
+    ...p.entry,
+  }))
+  .sort((a, b) => b.startDate.localeCompare(a.startDate));
+
+const featuredProjects = projects.filter((p) => p.isFeatured);
+
+// Transform testimonials
+const testimonials = testimonialsData.map((t) => ({
+  slug: t.slug,
+  ...t.entry,
+}));
+
+// SEO
+const title = profile?.name 
+  ? `${profile.name} - ${profile.title}`
+  : 'Portfolio';
+const description = profile?.tagline || 'Principal Solution Architect specializing in AI, Offensive Cybersecurity, and Enterprise Architecture.';
+---
+
+<Layout 
+  title={title}
+  description={description}
+  profile={profile}
+  testimonials={testimonials}
+  canonicalUrl="/"
+>
+  <!-- Hero Section with Dynamic Aspirations -->
+  <HeroSection profile={profile} />
+  
+  <!-- Experience Section with JS-free Accordion -->
+  <ExperienceSection 
+    id="experience"
+    projects={projects}
+  />
+  
+  <!-- Skills Visualization -->
+  <SkillsSection 
+    id="skills"
+    projects={projects}
+  />
+  
+  <!-- Testimonials Masonry -->
+  <TestimonialsSection 
+    id="testimonials"
+    testimonials={testimonials}
+  />
+  
+  <!-- Contact Modal -->
+  <ContactModal profile={profile} />
+</Layout>

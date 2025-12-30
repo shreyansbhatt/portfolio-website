@@ -1,0 +1,169 @@
+---
+import '@/styles/global.css';
+import { generatePersonJsonLd, generateWebsiteJsonLd, getAvailabilityDisplay } from '@/lib/utils';
+import type { Profile, Testimonial } from '@/lib/schemas';
+import Navigation from '@/components/Navigation.astro';
+import Footer from '@/components/Footer.astro';
+import AvailabilityBadge from '@/components/AvailabilityBadge.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  profile?: Profile;
+  testimonials?: Testimonial[];
+  ogImage?: string;
+  canonicalUrl?: string;
+  additionalJsonLd?: object;
+  noIndex?: boolean;
+}
+
+const { 
+  title, 
+  description, 
+  profile, 
+  testimonials = [], 
+  ogImage,
+  canonicalUrl,
+  additionalJsonLd,
+  noIndex = false,
+} = Astro.props;
+
+const siteUrl = 'https://shreyansbhatt.com';
+const fullTitle = profile ? `${title} | ${profile.name}` : title;
+const ogImageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/images/og-default.png`;
+const canonical = canonicalUrl ? `${siteUrl}${canonicalUrl}` : Astro.url.href;
+
+// Generate JSON-LD
+let jsonLdScripts: string[] = [];
+
+if (profile) {
+  const personJsonLd = generatePersonJsonLd(profile, testimonials);
+  jsonLdScripts.push(JSON.stringify(personJsonLd));
+  
+  const websiteJsonLd = generateWebsiteJsonLd(profile);
+  jsonLdScripts.push(JSON.stringify(websiteJsonLd));
+}
+
+if (additionalJsonLd) {
+  jsonLdScripts.push(JSON.stringify(additionalJsonLd));
+}
+
+const availabilityStatus = profile ? getAvailabilityDisplay(profile.availabilityStatus) : null;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+    
+    <!-- Canonical -->
+    <link rel="canonical" href={canonical} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:site_name" content={profile?.name || 'Portfolio'} />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonical} />
+    <meta property="twitter:title" content={fullTitle} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImageUrl} />
+    {profile?.socialLinks.twitter && (
+      <meta property="twitter:creator" content={profile.socialLinks.twitter.split('/').pop()} />
+    )}
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0a192f" />
+    
+    <!-- Fonts: JetBrains Mono (Terminal) + Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" 
+      rel="stylesheet"
+    />
+    
+    <!-- JSON-LD Structured Data -->
+    {jsonLdScripts.map((script) => (
+      <script type="application/ld+json" set:html={script} />
+    ))}
+    
+    <!-- Prefetch critical pages -->
+    <link rel="prefetch" href="/blog" />
+    
+    <!-- Theme (Dark Mode Only - No toggle needed) -->
+    <script is:inline>
+      document.documentElement.classList.add('dark');
+    </script>
+  </head>
+  
+  <body class="bg-abyss text-text-primary min-h-screen flex flex-col antialiased">
+    <!-- Scan Line Effect (Terminal Aesthetic) -->
+    <div class="fixed inset-0 pointer-events-none z-50 overflow-hidden opacity-5">
+      <div class="scan-line absolute inset-0"></div>
+    </div>
+    
+    <!-- Grid Pattern Background -->
+    <div class="fixed inset-0 bg-grid opacity-5 pointer-events-none"></div>
+    
+    <!-- Availability Status Badge (Subtle Pulse) -->
+    {profile && availabilityStatus && (
+      <AvailabilityBadge 
+        status={profile.availabilityStatus}
+        openTo={profile.openTo}
+      />
+    )}
+    
+    <!-- Navigation -->
+    <Navigation profile={profile} />
+    
+    <!-- Main Content -->
+    <main class="flex-1 relative z-10">
+      <slot />
+    </main>
+    
+    <!-- Footer -->
+    <Footer profile={profile} />
+    
+    <!-- Email Decode Script (Anti-scraping) -->
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('[data-email]').forEach((el) => {
+          const encoded = el.getAttribute('data-email');
+          if (encoded) {
+            const decoded = encoded.replace('[at]', '@').replace(/\[dot\]/g, '.');
+            el.setAttribute('href', `mailto:${decoded}`);
+            if (el.textContent?.includes('[at]')) {
+              el.textContent = decoded;
+            }
+          }
+        });
+      });
+    </script>
+    
+    <!-- Cloudflare Web Analytics (Privacy-First) -->
+    <script 
+      defer 
+      src="https://static.cloudflareinsights.com/beacon.min.js" 
+      data-cf-beacon='{"token": "YOUR_CF_ANALYTICS_TOKEN"}'
+    ></script>
+  </body>
+</html>

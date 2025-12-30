@@ -1,0 +1,45 @@
+{
+  "slug": "reeleezee-xdocworks",
+  "clientName": "XDocWorks (Reeleezee) Pvt. Ltd.",
+  "displayName": "Reeleezee Online Accounting",
+  "role": "Software Engineer | SSRS Specialist",
+  "startDate": "2013-10",
+  "endDate": "2017-04",
+  "engagementType": "Permanent",
+  "workMode": "Onsite",
+  "teamSize": 8,
+  "location": "Ahmedabad, India",
+  "isConfidential": false,
+  "isFeatured": false,
+  "isDraft": false,
+  "companyDescription": "Reeleezee is a successful Dutch provider of online bookkeeping, invoices and time sheets for starters, own-account workers, SMEs and their accountants. From their business premises in Breukelen, they serve over 80,000 users with more than 20,000 online bookkeeping systems.",
+  "techStack": [
+    "C#",
+    ".NET Framework",
+    "Silverlight",
+    "SSRS",
+    "SQL Server",
+    "ASP.NET REST Web API",
+    "OAuth 2.0",
+    "IIS"
+  ],
+  "skills": [
+    { "name": "C#", "rating": 9 },
+    { "name": "SSRS Reporting", "rating": 10 },
+    { "name": "Silverlight", "rating": 8 },
+    { "name": "SQL Server", "rating": 9 },
+    { "name": "REST API Development", "rating": 8 },
+    { "name": "Multi-tenant Architecture", "rating": 7 }
+  ],
+  "achievements": [
+    "Joined organization predominantly as SSRS developer with strong C# knowledge",
+    "Developed quality-driven code while maintaining existing Silverlight-based web application",
+    "Implemented SSRS-based multilingual and customized reports",
+    "Created multilingual SSRS reports by gaining entire system's SQL database knowledge",
+    "Created new web APIs to support new features in single tenancy database environments with heterogeneous release versions",
+    "Built indigenously developed rendering engine capable of designing input parameter controls dynamically",
+    "Generated over 100 reports under various categories with multilingual parameter filtering"
+  ],
+  "projectReference": "https://portal.reeleezee.nl/ma/mobileaccounting202341b1/#!/login",
+  "relatedTestimonial": null
+}

@@ -1,0 +1,126 @@
+---
+import { getAvailabilityDisplay } from '@/lib/utils';
+import type { OpenTo } from '@/lib/schemas';
+
+interface Props {
+  status: string;
+  openTo: OpenTo[];
+}
+
+const { status, openTo } = Astro.props;
+const { emoji, colorClass, label } = getAvailabilityDisplay(status);
+
+// Determine status color classes
+const statusColors = {
+  'Available': 'border-emerald-500 bg-emerald-500/10 text-emerald-400',
+  'Open to Discuss': 'border-cyan-glow bg-cyan-glow/10 text-cyan-glow',
+  'Busy': 'border-amber-500 bg-amber-500/10 text-amber-400',
+};
+
+const colorClasses = statusColors[status as keyof typeof statusColors] || statusColors['Open to Discuss'];
+---
+
+<div 
+  class="fixed top-20 right-4 z-40 no-print"
+  aria-label={`Availability: ${label}`}
+>
+  <button
+    id="availability-badge"
+    class={`group flex items-center gap-2 px-4 py-2.5 rounded-full backdrop-blur-md border-2 transition-all duration-300 shadow-lg hover:scale-105 ${colorClasses}`}
+    aria-expanded="false"
+    aria-controls="availability-dropdown"
+  >
+    <!-- Pulse indicator -->
+    <span class="relative flex h-3 w-3">
+      <span class={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${status === 'Available' ? 'bg-emerald-400' : status === 'Open to Discuss' ? 'bg-cyan-glow' : 'bg-amber-400'}`}></span>
+      <span class={`relative inline-flex rounded-full h-3 w-3 ${status === 'Available' ? 'bg-emerald-400' : status === 'Open to Discuss' ? 'bg-cyan-glow' : 'bg-amber-400'}`}></span>
+    </span>
+    
+    <span class="text-sm font-medium hidden sm:inline">
+      {status === 'Available' ? 'Open for Work' : status}
+    </span>
+    
+    <!-- Expand Icon -->
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      class="h-4 w-4 transition-transform duration-300 group-aria-expanded:rotate-180"
+      id="availability-chevron"
+      fill="none" 
+      viewBox="0 0 24 24" 
+      stroke="currentColor"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+  
+  <!-- Dropdown -->
+  <div 
+    id="availability-dropdown"
+    class="hidden absolute top-full right-0 mt-3 w-72 p-5 rounded-xl bg-depths/95 backdrop-blur-md border border-surface shadow-2xl"
+    role="region"
+    aria-label="Availability details"
+  >
+    <div class="space-y-4">
+      <!-- Status Header -->
+      <div class="flex items-center gap-3 pb-3 border-b border-surface">
+        <span class="text-2xl">{emoji}</span>
+        <div>
+          <p class="text-text-primary font-semibold">{label}</p>
+          <p class="text-xs text-text-muted">Current availability status</p>
+        </div>
+      </div>
+      
+      <!-- Open To -->
+      {openTo.length > 0 && (
+        <div>
+          <p class="text-xs text-text-muted uppercase tracking-wider mb-3">Open to:</p>
+          <div class="flex flex-wrap gap-2">
+            {openTo.map((type) => (
+              <span class="px-3 py-1.5 text-sm rounded-full bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/30">
+                {type}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+      
+      <!-- CTA -->
+      <a 
+        href="#contact"
+        class="flex items-center justify-center gap-2 w-full py-3 text-sm font-medium bg-cyan-glow text-abyss rounded-lg hover:bg-cyan-dim transition-colors"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+        </svg>
+        Let's Connect
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const badge = document.getElementById('availability-badge');
+  const dropdown = document.getElementById('availability-dropdown');
+  
+  badge?.addEventListener('click', () => {
+    const isExpanded = badge.getAttribute('aria-expanded') === 'true';
+    badge.setAttribute('aria-expanded', (!isExpanded).toString());
+    dropdown?.classList.toggle('hidden');
+  });
+  
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (!badge?.contains(e.target as Node) && !dropdown?.contains(e.target as Node)) {
+      badge?.setAttribute('aria-expanded', 'false');
+      dropdown?.classList.add('hidden');
+    }
+  });
+  
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      badge?.setAttribute('aria-expanded', 'false');
+      dropdown?.classList.add('hidden');
+    }
+  });
+</script>

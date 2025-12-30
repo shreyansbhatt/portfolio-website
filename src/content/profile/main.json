@@ -1,0 +1,52 @@
+{
+  "name": "Shreyans Bhatt",
+  "title": "Solution Architect | Principal Engineer | CEH Certified",
+  "tagline": "Technical Solutions Architect with 16+ years hands-on leadership in enterprise architecture, AI/ML systems, and offensive cybersecurity. Expert in end-to-end Microsoft/.NET stacks, cloud platforms (Azure/AWS), and high-throughput distributed systems.",
+  "email": "tech.shreyans@gmail.com",
+  "phone": "+91 9978446088",
+  "location": "Ahmedabad, India",
+  "timezone": "UTC+5:30",
+  "availabilityStatus": "Available",
+  "openTo": [
+    "Full-time",
+    "Contract",
+    "Advisory"
+  ],
+  "workModes": [
+    "Remote",
+    "Hybrid",
+    "Onsite"
+  ],
+  "socialLinks": {
+    "linkedin": "https://linkedin.com/in/shreyans-bhatt",
+    "github": "https://github.com/shreyansbhatt",
+    "medium": "https://medium.com/@tech.shreyans"
+  },
+  "aspirations": [
+    {
+      "goal": "Architect AI-powered enterprise platforms at global scale",
+      "timeline": "Immediate",
+      "icon": "🤖"
+    },
+    {
+      "goal": "Lead offensive security initiatives for critical infrastructure",
+      "timeline": "Strategic",
+      "icon": "🛡️"
+    },
+    {
+      "goal": "Bridge the gap between ML research and production systems",
+      "timeline": "Immediate",
+      "icon": "🔬"
+    },
+    {
+      "goal": "Mentor the next generation of solution architects",
+      "timeline": "Strategic",
+      "icon": "👨‍🏫"
+    },
+    {
+      "goal": "Contribute to open-source security tooling",
+      "timeline": "Visionary",
+      "icon": "🔓"
+    }
+  ]
+}

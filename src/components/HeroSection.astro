@@ -1,0 +1,172 @@
+---
+import type { Profile, Aspiration } from '@/lib/schemas';
+
+interface Props {
+  profile?: Profile;
+}
+
+const { profile } = Astro.props;
+
+// Get aspirations for typewriter
+const aspirations = profile?.aspirations || [];
+const aspirationTexts = aspirations.map((a: Aspiration) => a.goal);
+---
+
+<section class="relative min-h-[90vh] flex items-center overflow-hidden">
+  <!-- Background -->
+  <div class="absolute inset-0 bg-gradient-to-br from-abyss via-depths to-abyss"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--color-cyan-muted)_0%,_transparent_50%)] opacity-50"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--color-crimson-muted)_0%,_transparent_50%)] opacity-30"></div>
+  
+  <!-- Grid Pattern Overlay -->
+  <div class="absolute inset-0 opacity-5" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22><rect width=%2240%22 height=%2240%22 fill=%22none%22 stroke=%22%2364ffda%22 stroke-width=%220.5%22/></svg>');"></div>
+  
+  <div class="container relative z-10">
+    <div class="max-w-3xl">
+      <!-- Greeting -->
+      <p class="text-cyan-glow font-mono text-sm mb-4 tracking-wider">
+        Hi, my name is
+      </p>
+      
+      <!-- Name -->
+      <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-text-primary mb-4 leading-tight">
+        {profile?.name || 'Shreyans Bhatt'}
+      </h1>
+      
+      <!-- Title -->
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-text-secondary mb-6 leading-tight">
+        {profile?.title || 'Solution Architect & Principal Engineer'}
+      </h2>
+      
+      <!-- Tagline -->
+      <p class="text-lg md:text-xl text-text-muted max-w-2xl mb-8 leading-relaxed">
+        {profile?.tagline || 'Building scalable, secure systems at the intersection of AI, Cybersecurity, and Enterprise Architecture.'}
+      </p>
+      
+      <!-- Typewriter Aspirations -->
+      {aspirationTexts.length > 0 && (
+        <div class="mb-10 p-4 rounded-lg bg-void/50 border border-surface inline-block">
+          <div class="flex items-center gap-3 font-mono text-sm">
+            <span class="text-cyan-glow">$</span>
+            <span class="text-text-muted">focus:</span>
+            <span 
+              id="typewriter-text"
+              class="text-cyan-glow font-medium"
+              data-aspirations={JSON.stringify(aspirationTexts)}
+            >
+              {aspirationTexts[0]}
+            </span>
+            <span class="text-cyan-glow animate-blink">_</span>
+          </div>
+        </div>
+      )}
+      
+      <!-- Stats -->
+      <div class="flex flex-wrap gap-8 mb-10">
+        <div>
+          <p class="text-4xl font-bold text-cyan-glow">16+</p>
+          <p class="text-sm text-text-muted uppercase tracking-wider">Years Experience</p>
+        </div>
+        <div class="w-px bg-surface"></div>
+        <div>
+          <p class="text-4xl font-bold text-cyan-glow">50+</p>
+          <p class="text-sm text-text-muted uppercase tracking-wider">Projects Delivered</p>
+        </div>
+        <div class="w-px bg-surface"></div>
+        <div>
+          <p class="text-4xl font-bold text-crimson">CEH</p>
+          <p class="text-sm text-text-muted uppercase tracking-wider">Certified</p>
+        </div>
+      </div>
+      
+      <!-- CTAs -->
+      <div class="flex flex-wrap gap-4">
+        <a href="#experience" class="btn btn-primary">
+          View My Work
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-text-muted animate-bounce">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+</section>
+
+<style>
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  
+  .animate-blink {
+    animation: blink 1s step-end infinite;
+  }
+</style>
+
+<script>
+  const typewriterEl = document.getElementById('typewriter-text');
+  if (typewriterEl) {
+    const aspirations = JSON.parse(typewriterEl.dataset.aspirations || '[]') as string[];
+    if (aspirations.length > 1) {
+      let currentIndex = 0;
+      let charIndex = aspirations[0].length;
+      let isDeleting = false;
+      let isPaused = false;
+      
+      const typeSpeed = 50;
+      const deleteSpeed = 30;
+      const pauseTime = 3000;
+      
+      function type() {
+        const current = aspirations[currentIndex];
+        
+        if (isPaused) {
+          isPaused = false;
+          isDeleting = true;
+          setTimeout(type, pauseTime);
+          return;
+        }
+        
+        if (isDeleting) {
+          typewriterEl!.textContent = current.substring(0, charIndex - 1);
+          charIndex--;
+          
+          if (charIndex === 0) {
+            isDeleting = false;
+            currentIndex = (currentIndex + 1) % aspirations.length;
+          }
+          
+          setTimeout(type, deleteSpeed);
+        } else {
+          const next = aspirations[currentIndex];
+          typewriterEl!.textContent = next.substring(0, charIndex + 1);
+          charIndex++;
+          
+          if (charIndex === next.length) {
+            isPaused = true;
+            setTimeout(type, typeSpeed);
+            return;
+          }
+          
+          setTimeout(type, typeSpeed);
+        }
+      }
+      
+      // Start after initial pause
+      setTimeout(() => {
+        isPaused = true;
+        type();
+      }, pauseTime);
+    }
+  }
+</script>

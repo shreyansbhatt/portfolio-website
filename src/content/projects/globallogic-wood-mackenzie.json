@@ -1,0 +1,52 @@
+{
+  "slug": "globallogic-wood-mackenzie",
+  "clientName": "GlobalLogic - A Hitachi Company",
+  "displayName": "Wood Mackenzie (via GlobalLogic)",
+  "role": "Solution Architect",
+  "startDate": "2024-08",
+  "endDate": "Present",
+  "engagementType": "Permanent",
+  "workMode": "Hybrid",
+  "teamSize": 12,
+  "location": "Ahmedabad, India",
+  "isConfidential": false,
+  "isFeatured": true,
+  "isDraft": false,
+  "companyDescription": "Wood Mackenzie is a global leader in natural resources research and consultancy. EPSI is their on-demand modeling platform for the short-term renewable energy market.",
+  "techStack": [
+    "C#",
+    ".NET 8",
+    "Azure APIM",
+    "Apache Kafka",
+    "Event Hubs",
+    "C4 Architecture",
+    "Perl",
+    "Python",
+    "OWASP",
+    "AWS Kong",
+    "NGINX",
+    "Binary Data Processing"
+  ],
+  "skills": [
+    { "name": "Solution Architecture", "rating": 10 },
+    { "name": "C4 Architecture Diagrams", "rating": 9 },
+    { "name": "Azure APIM", "rating": 9 },
+    { "name": "Event-Driven Architecture", "rating": 9 },
+    { "name": "Predictive Modeling", "rating": 8 },
+    { "name": "API Gateway Design", "rating": 9 },
+    { "name": "Cloud-Native Patterns", "rating": 9 },
+    { "name": "Technical Leadership", "rating": 9 }
+  ],
+  "achievements": [
+    "Deeply involved in re-platforming and modernization of EPSI, Wood Mackenzie's on-demand modeling platform for the short-term renewable energy market",
+    "Collaborated with cross-functional teams to deliver ARDs, Tech Radar initiatives, and C4 diagrams ensuring architectural alignment and innovation",
+    "Built and integrated Azure Event Hubs, API Management & Apache Kafka for scalable event streaming",
+    "Delivered PoCs on API Gateway Architecture (APIM Upstream), Early Authentication, and Rate Limiting—establishing reusable patterns for scalable API security",
+    "Presented EPSI Architecture Review to stakeholders, aligning platform modernization with long-term secure design goals",
+    "Integrated performance enhancements reducing system latency by 30%",
+    "Participate in GlobalLogic's Architecture Guild sharing insights on modern architectural trends",
+    "Help engineering team with feasibility checks through targeted, precise, and demonstrable Proof of Concepts"
+  ],
+  "projectReference": "https://www.woodmac.com/nslp/power-and-renewables/epsi-europe/",
+  "relatedTestimonial": null
+}

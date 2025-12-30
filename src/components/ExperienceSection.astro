@@ -1,0 +1,202 @@
+---
+import type { Project } from '@/lib/schemas';
+import { getProjectDisplayName, formatDateRange, calculateDuration, formatDuration } from '@/lib/utils';
+
+interface Props {
+  id?: string;
+  projects: Project[];
+}
+
+const { id, projects } = Astro.props;
+
+// Sort projects by start date (newest first)
+const sortedProjects = [...projects].sort((a, b) => b.startDate.localeCompare(a.startDate));
+---
+
+<section id={id} class="section bg-depths/30">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="text-center mb-16 space-y-4">
+      <p class="text-cyan-glow text-sm font-mono uppercase tracking-wider">
+        // Career Timeline
+      </p>
+      <h2 class="text-4xl md:text-5xl font-bold text-text-primary">
+        Experience
+      </h2>
+      <p class="text-text-secondary max-w-2xl mx-auto">
+        16+ years of architecting scalable systems across enterprise, fintech, healthcare, and cybersecurity domains.
+      </p>
+    </div>
+    
+    <!-- Timeline -->
+    <div class="relative max-w-4xl mx-auto">
+      <!-- Vertical Line - Fixed on Left -->
+      <div class="absolute left-[7px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-glow via-surface to-crimson"></div>
+      
+      <!-- Projects -->
+      <div class="space-y-6">
+        {sortedProjects.map((project) => {
+          const displayName = getProjectDisplayName(project);
+          const dateRange = formatDateRange(project.startDate, project.endDate);
+          const duration = calculateDuration(project.startDate, project.endDate);
+          const durationText = formatDuration(duration);
+          
+          return (
+            <div class="relative pl-10">
+              {/* Timeline Dot */}
+              <div class="absolute left-0 top-8 w-4 h-4 rounded-full border-2 border-cyan-glow bg-abyss z-10">
+                <div class="absolute inset-1 rounded-full bg-cyan-glow"></div>
+              </div>
+              
+              {/* Content Card */}
+              <details class="group bg-depths border border-surface rounded-xl overflow-hidden hover:border-cyan-glow/50 transition-colors">
+                <summary class="p-6 cursor-pointer list-none">
+                  <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                    {/* Left: Company & Role */}
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center gap-2 flex-wrap mb-1">
+                        <h3 class="text-lg font-semibold text-text-primary">
+                          {displayName}
+                        </h3>
+                        {project.isConfidential && (
+                          <span class="px-2 py-0.5 text-xs rounded bg-crimson/20 text-crimson border border-crimson/30">
+                            NDA
+                          </span>
+                        )}
+                        {project.isFeatured && (
+                          <span class="px-2 py-0.5 text-xs rounded bg-cyan-glow/20 text-cyan-glow border border-cyan-glow/30">
+                            Featured
+                          </span>
+                        )}
+                      </div>
+                      <p class="text-cyan-glow font-medium">{project.role}</p>
+                    </div>
+                    
+                    {/* Right: Meta */}
+                    <div class="flex items-center gap-4 text-sm text-text-muted shrink-0">
+                      <span>{dateRange}</span>
+                      <span class="text-surface">•</span>
+                      <span>{durationText}</span>
+                      <span class="text-surface">•</span>
+                      <span class="capitalize">{project.workMode}</span>
+                      
+                      {/* Chevron */}
+                      <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        class="h-5 w-5 text-text-muted group-open:rotate-180 transition-transform ml-2" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </div>
+                </summary>
+                
+                {/* Expanded Content */}
+                <div class="px-6 pb-6 space-y-6 border-t border-surface pt-6">
+                  {/* Company Description */}
+                  {project.companyDescription && (
+                    <p class="text-text-secondary text-sm italic border-l-2 border-cyan-glow/50 pl-4">
+                      {project.companyDescription}
+                    </p>
+                  )}
+                  
+                  {/* Achievements */}
+                  {project.achievements && project.achievements.length > 0 && (
+                    <div>
+                      <h4 class="text-sm font-semibold text-text-primary mb-3 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-cyan-glow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Key Achievements
+                      </h4>
+                      <ul class="space-y-2">
+                        {project.achievements.map((achievement) => (
+                          <li class="flex items-start gap-3 text-sm text-text-secondary">
+                            <span class="text-cyan-glow mt-0.5 shrink-0">▹</span>
+                            <span>{achievement}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  
+                  {/* Tech Stack */}
+                  {project.techStack && project.techStack.length > 0 && (
+                    <div>
+                      <h4 class="text-sm font-semibold text-text-primary mb-3 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-cyan-glow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                        Tech Stack
+                      </h4>
+                      <div class="flex flex-wrap gap-2">
+                        {project.techStack.map((tech) => (
+                          <span class="px-3 py-1 text-xs rounded-full bg-surface text-text-secondary border border-surface hover:border-cyan-glow/30 transition-colors">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Skills with Ratings */}
+                  {project.skills && project.skills.length > 0 && (
+                    <div>
+                      <h4 class="text-sm font-semibold text-text-primary mb-3 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-cyan-glow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        Skills Applied (Project Depth)
+                      </h4>
+                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {project.skills.slice(0, 6).map((skill) => {
+                          const percentage = skill.rating * 10;
+                          const barColor = skill.rating >= 9 ? 'bg-cyan-glow' : 
+                                          skill.rating >= 7 ? 'bg-cyan-dim' : 
+                                          skill.rating >= 5 ? 'bg-amber-500' : 'bg-crimson';
+                          return (
+                            <div class="space-y-1.5">
+                              <div class="flex items-center justify-between text-xs">
+                                <span class="text-text-secondary">{skill.name}</span>
+                                <span class="text-cyan-glow font-mono">{skill.rating}/10</span>
+                              </div>
+                              <div class="h-1.5 bg-surface rounded-full overflow-hidden">
+                                <div 
+                                  class={`h-full rounded-full transition-all duration-500 ${barColor}`}
+                                  style={`width: ${percentage}%`}
+                                ></div>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Project Reference */}
+                  {project.projectReference && (
+                    <a 
+                      href={project.projectReference}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-2 text-sm text-cyan-glow hover:text-cyan-dim transition-colors group"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                      View Project Reference
+                      <span class="group-hover:translate-x-1 transition-transform">→</span>
+                    </a>
+                  )}
+                </div>
+              </details>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</section>

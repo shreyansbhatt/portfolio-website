@@ -1,0 +1,51 @@
+{
+  "slug": "econsultants-german-erp",
+  "clientName": "eConsultants Networks India Pvt. Ltd.",
+  "displayName": "German Client ERP Development",
+  "role": "Software Engineer",
+  "startDate": "2010-02",
+  "endDate": "2012-05",
+  "engagementType": "Permanent",
+  "workMode": "Onsite",
+  "teamSize": 8,
+  "location": "Ahmedabad, India",
+  "isConfidential": false,
+  "isFeatured": false,
+  "isDraft": false,
+  "companyDescription": "eConsultantsNetwork India is an offshore software development & outsourcing company specializing in providing services to clients located in Germany. They serve customers with 24/7 support for ERP and custom software solutions.",
+  "techStack": [
+    "ASP.NET",
+    "AJAX",
+    "C#",
+    "ADO.NET",
+    "Windows Forms",
+    "VSTO",
+    "Word Bookmarks",
+    "Word Add-ins",
+    "Excel Add-ins",
+    "SSRS",
+    "SQL Server",
+    "IIS"
+  ],
+  "skills": [
+    { "name": "ASP.NET", "rating": 8 },
+    { "name": "C#", "rating": 8 },
+    { "name": "VSTO Development", "rating": 8 },
+    { "name": "SQL Server", "rating": 8 },
+    { "name": "Entity Framework Design", "rating": 7 },
+    { "name": "Windows Forms", "rating": 7 },
+    { "name": "Client Communication", "rating": 7 }
+  ],
+  "achievements": [
+    "Joined as intern and earned permanent role as dedicated .NET programming resource for German ERP development team",
+    "Extended generic and flexible entity framework for product development following Object Oriented Principles",
+    "Supported customers troubleshooting technical difficulties in server deployment and availability",
+    "Developed web projects as individual contributor and deployed on regional servers",
+    "Built Performance Management System (CRM-PMS) with web interface for Project & ToDos management",
+    "Developed LEA+ WILKEN integration module for Outgoing Invoice using VSTO Word Bookmarks",
+    "Created Invoice Template and Billing modules with editable/non-editable bookmark fields",
+    "Implemented Dynamic Captions, Runtime Field Generation, Multicolumn Search, Resolution Independent Layout"
+  ],
+  "projectReference": "https://www.leapartners.de/en",
+  "relatedTestimonial": null
+}

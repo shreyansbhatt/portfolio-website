@@ -1,0 +1,10 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://shreyansbhatt.com/sitemap-index.xml
+
+# Disallow admin routes
+Disallow: /keystatic
+Disallow: /admin

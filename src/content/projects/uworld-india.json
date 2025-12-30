@@ -1,0 +1,53 @@
+{
+  "slug": "uworld-india",
+  "clientName": "UWorld India Pvt. Ltd.",
+  "displayName": null,
+  "role": "Principal Software Engineer",
+  "startDate": "2020-07",
+  "endDate": "2021-07",
+  "engagementType": "Permanent",
+  "workMode": "Remote",
+  "teamSize": 10,
+  "location": "Hyderabad, India - Remote",
+  "isConfidential": false,
+  "isFeatured": true,
+  "isDraft": false,
+  "companyDescription": "UWorld is the most user-friendly test prep company on the market. They have helped millions of undergraduates, graduates, and professionals successfully prepare for high-stakes exams including USMLE, NCLEX, and more.",
+  "techStack": [
+    "C#",
+    "ASP.NET Core 5.0",
+    ".NET Framework 4.5.2",
+    "Angular 9",
+    "Docker",
+    "Kubernetes",
+    "Microservices",
+    "Protobuf",
+    "REST",
+    "gRPC",
+    "MongoDB",
+    "Azure DevOps",
+    "Onion Architecture",
+    "Clean Architecture",
+    "Polynomial Regression Model"
+  ],
+  "skills": [
+    { "name": "Technical Leadership", "rating": 9 },
+    { "name": "Microservices Architecture", "rating": 9 },
+    { "name": "Onion Architecture", "rating": 9 },
+    { "name": "DevOps", "rating": 8 },
+    { "name": "Kubernetes", "rating": 7 },
+    { "name": "gRPC", "rating": 8 },
+    { "name": "Clean Architecture", "rating": 9 }
+  ],
+  "achievements": [
+    "Received B2B Innovation Award for defining scalable microservices, increasing system reliability by 30%",
+    "Awarded technical lead for organization's most rewarding B2B platform for extraordinary contribution in Test Preparation Interface module",
+    "Executed responsibility for delivering quality features by actively participating in development activities, technical and functional grooming sessions",
+    "Worked on establishing company's first DevOps implementations for different environments leading to production server",
+    "Implemented Onion Architecture and Clean Design code for new microservices-focused API",
+    "Played crucial role in upgrading the technical stack of the product",
+    "Maintained Azure DevOps pipelines for different environments"
+  ],
+  "projectReference": "https://medical.uworld.com/usmle/usmle-step-1/",
+  "relatedTestimonial": null
+}

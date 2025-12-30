@@ -1,0 +1,141 @@
+{
+  "slug": "cyron-intelligence-mvp",
+  "clientName": "Cyron Intelligence",
+  "displayName": "Cyron API Security Platform",
+  "role": "Solo MVP Developer | Security Architect",
+  "startDate": "2024-06",
+  "endDate": "Present",
+  "engagementType": "Contract",
+  "workMode": "Remote",
+  "teamSize": 1,
+  "location": "Remote",
+  "isConfidential": true,
+  "isFeatured": true,
+  "isDraft": false,
+  "companyDescription": "Cyron Intelligence is an enterprise-grade API security platform featuring real-time threat detection, machine learning-based traffic analysis, and comprehensive monitoring capabilities. Built as a solo developer demonstrating full-stack security expertise.",
+  "techStack": [
+    ".NET 9",
+    "ASP.NET Core",
+    "C#",
+    "Entity Framework Core 9",
+    "Blazor Server",
+    "PostgreSQL",
+    "TimescaleDB",
+    "Redis",
+    "Redis Streams",
+    "Python 3.x",
+    "XGBoost",
+    "LightGBM",
+    "scikit-learn",
+    "ONNX Runtime",
+    "Docker",
+    "Docker Compose",
+    "Nginx",
+    "OpenResty",
+    "Lua",
+    "Go (Golang)",
+    "Azure AKS",
+    "Azure Container Apps",
+    "GitHub Actions",
+    "Kubernetes",
+    "Kustomize",
+    "Cloudflare",
+    "JWT Authentication",
+    "HMAC-SHA256",
+    "AES-256-GCM",
+    "BCrypt",
+    "Polly",
+    "Serilog",
+    "Prometheus",
+    "MLflow",
+    "SHAP",
+    "Optuna",
+    "GreyNoise API",
+    "STIX 2.1",
+    "Paddle Billing SDK"
+  ],
+  "skills": [
+    {
+      "name": ".NET 9",
+      "rating": 9
+    },
+    {
+      "name": "ASP.NET Core",
+      "rating": 9
+    },
+    {
+      "name": "C#",
+      "rating": 9
+    },
+    {
+      "name": "Entity Framework Core",
+      "rating": 8
+    },
+    {
+      "name": "Blazor Server",
+      "rating": 8
+    },
+    {
+      "name": "PostgreSQL",
+      "rating": 8
+    },
+    {
+      "name": "Redis",
+      "rating": 8
+    },
+    {
+      "name": "Python ML",
+      "rating": 8
+    },
+    {
+      "name": "XGBoost",
+      "rating": 7
+    },
+    {
+      "name": "ONNX Runtime",
+      "rating": 7
+    },
+    {
+      "name": "Docker",
+      "rating": 9
+    },
+    {
+      "name": "JWT Security",
+      "rating": 8
+    },
+    {
+      "name": "Cryptography",
+      "rating": 8
+    },
+    {
+      "name": "Kubernetes",
+      "rating": 6
+    },
+    {
+      "name": "Go (Golang)",
+      "rating": 6
+    },
+    {
+      "name": "Lua Scripting",
+      "rating": 6
+    },
+    {
+      "name": "Threat Intelligence",
+      "rating": 6
+    }
+  ],
+  "achievements": [
+    "Built enterprise-grade API security platform as solo developer demonstrating full-stack expertise",
+    "Implemented real-time threat detection with ML-based traffic analysis achieving sub-50ms latency requirements",
+    "Developed ApplicationCore and AnalysisEngine microservices with Minimal APIs pattern",
+    "Built Blazor Server dashboard with real-time UI and authentication flows",
+    "Designed complex PostgreSQL + TimescaleDB schema for time-series security data",
+    "Implemented Redis Streams for messaging and rate limiting infrastructure",
+    "Created ensemble threat detection models using XGBoost/LightGBM with ONNX cross-platform inference",
+    "Built cyron-agent-nova reverse proxy in Go with inline blocking capability",
+    "Developed cyron-agent-gamma Nginx/Lua module for traffic mirroring",
+    "Implemented zero-trust security patterns with HMAC-SHA256 webhook validation and AES-256-GCM PII encryption",
+    "Set up comprehensive CI/CD pipelines with GitHub Actions for multi-environment deployment",
+    "Integrated GreyNoise API for threat intelligence enrichment with STIX 2.1 indicator management"
+  ]
+}
