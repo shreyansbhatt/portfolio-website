@@ -6,12 +6,12 @@ import keystatic from '@keystatic/astro';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  output: 'server',
+  output: 'static',
   adapter: cloudflare({
+    imageService: 'cloudflare',
     platformProxy: {
       enabled: true,
     },
-    imageService: 'cloudflare',
   }),
   integrations: [
     react(),
@@ -20,16 +20,8 @@ export default defineConfig({
   ],
   vite: {
     plugins: [tailwindcss()],
-  },
-  image: {
-    domains: ['linkedin.com', 'media.licdn.com'],
-  },
-  site: 'https://shreyansbhatt.com',
-  prefetch: {
-    prefetchAll: true,
-    defaultStrategy: 'viewport',
-  },
-  experimental: {
-    clientPrerender: true,
+    resolve: {
+      conditions: ['workerd', 'worker', 'browser'],
+    },
   },
 });

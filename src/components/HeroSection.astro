@@ -21,7 +21,42 @@ const aspirationTexts = aspirations.map((a: Aspiration) => a.goal);
   <!-- Grid Pattern Overlay -->
   <div class="absolute inset-0 opacity-5" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22><rect width=%2240%22 height=%2240%22 fill=%22none%22 stroke=%22%2364ffda%22 stroke-width=%220.5%22/></svg>');"></div>
   
-  <div class="container relative z-10">
+<div class="container relative z-10">
+    <!-- Profile Image - Floated Right -->
+    <div class="hidden lg:block float-right ml-12 mb-8">
+      <div class="relative">
+        <!-- Glow Effect -->
+        <div class="absolute -inset-4 bg-gradient-to-br from-cyan-glow/20 via-transparent to-crimson/20 rounded-full blur-2xl opacity-60"></div>
+        <div class="absolute -inset-1 bg-gradient-to-br from-cyan-glow/30 to-crimson/30 rounded-full"></div>
+        
+        <!-- Image Container -->
+        <div class="relative w-72 h-72 xl:w-96 xl:h-96 rounded-full overflow-hidden border-4 border-depths shadow-2xl">
+          <img 
+            src={profile?.avatarImage || '/images/profile/avatar.jpg'}
+            alt={`${profile?.name || 'Profile'} - Solution Architect`}
+            class="w-full h-full object-cover"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <!-- Fallback: Initials -->
+          <div class="hidden w-full h-full bg-gradient-to-br from-cyan-glow/20 to-crimson/20 items-center justify-center absolute inset-0">
+            <span class="text-7xl font-bold text-cyan-glow/50">SB</span>
+          </div>
+        </div>
+        
+        <!-- Available Badge -->
+        <div class="absolute bottom-4 right-4 px-4 py-2 rounded-full bg-depths border border-cyan-glow/50 shadow-lg">
+          <div class="flex items-center gap-2">
+            <span class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-400"></span>
+            </span>
+            <span class="text-sm font-medium text-text-primary">Available</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
     <div class="max-w-3xl">
       <!-- Greeting -->
       <p class="text-cyan-glow font-mono text-sm mb-4 tracking-wider">
@@ -92,7 +127,11 @@ const aspirationTexts = aspirations.map((a: Aspiration) => a.goal);
         </a>
       </div>
     </div>
+    
+    <!-- Clear float -->
+    <div class="clear-both"></div>
   </div>
+
   
   <!-- Scroll Indicator -->
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-text-muted animate-bounce">
