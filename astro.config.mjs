@@ -5,14 +5,16 @@ import mdx from '@astrojs/mdx';
 import keystatic from '@keystatic/astro';
 import tailwindcss from '@tailwindcss/vite';
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 export default defineConfig({
-  output: 'static',
-  adapter: cloudflare({
+  output: isProduction ? 'static' : 'server',
+  adapter: isProduction ? cloudflare({
     imageService: 'cloudflare',
     platformProxy: {
       enabled: true,
     },
-  }),
+  }) : undefined,
   integrations: [
     react(),
     mdx(),
@@ -20,8 +22,5 @@ export default defineConfig({
   ],
   vite: {
     plugins: [tailwindcss()],
-    resolve: {
-      conditions: ['workerd', 'worker', 'browser'],
-    },
   },
 });
