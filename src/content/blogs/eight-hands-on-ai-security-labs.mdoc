@@ -1,0 +1,112 @@
+---
+slug: eight-hands-on-ai-security-labs
+title: "Eight Labs That Made AI Security Real for Me"
+publishDate: 2026-06-04
+updatedDate: 2026-06-04
+seoDescription: >-
+  Eight runnable AI security labs I built: prompt injection, MCP exploits,
+  membership inference, adversarial ML, policy-as-code, provenance, and AI GRC.
+category: Offensive Security
+tags:
+  - AI Red Teaming
+  - LLM Security
+  - MCP
+  - Adversarial Machine Learning
+  - Differential Privacy
+  - Policy as Code
+  - DevSecOps
+series:
+  discriminant: false
+status: published
+---
+You can read about AI security for months and still not understand it. The concepts only clicked for me when I built the attacks, watched them work, then built the defenses and measured exactly how much they helped.
+
+So I wrote eight small, runnable projects. Each one takes a single idea, makes it concrete, and maps it to the frameworks people actually cite: the OWASP LLM Top 10, the OWASP Agentic Top 10, and MITRE ATLAS. All of them are public on [GitHub](https://github.com/shreyansbhatt). Here is what each one taught me.
+
+## 1. Prompt injection and EchoLeak against RAG
+
+I built a defended retrieval chatbot and attacked it across four escalating classes. Naive attacks die at the system prompt. More sophisticated ones, using spelled-out numbers, format transforms, and encoding, partly defeat a regex output filter. Metadata-encoded queries defeat both layers.
+
+The finale is the interesting part: an indirect injection. I upload a malicious document to the corpus, and from then on the bot exfiltrates confidential data, word-encoded, inside a markdown image URL pointed at an attacker domain. That is the same mechanism as EchoLeak (CVE-2025-32711) against Microsoft 365 Copilot.
+
+The lesson stuck because I watched it happen: filters block patterns, and attackers just change patterns. The defense that actually worked was architectural, provenance tagging on retrieved content, restricting the output channel, and least privilege, not a smarter filter.
+
+Repo: `rag-prompt-injection-echoleak`.
+
+## 2. MCP security with a Docker gateway and a runtime interceptor
+
+I built a deliberately vulnerable Model Context Protocol server carrying two flaws: a command-injection bug and a tool-description-poisoning payload. Then I ran it through layered defenses.
+
+A static description scanner caught the poisoned tool metadata but was completely blind to the runtime injection. A custom JSON-RPC interceptor I wrote blocked the injection by inspecting tool-call arguments for shell metacharacters, but it would not have caught the poisoned description. The Docker MCP Gateway added container isolation on top.
+
+No single layer caught everything. That is the whole point: defense in depth is not a slogan for agentic tooling, it is a requirement.
+
+Repo: `mcp-security-docker-gateway`.
+
+## 3. Vulnerable versus hardened MCP servers
+
+To make the controls undeniable, I built two MCP servers side by side, one vulnerable and one hardened, and a single attack client that runs the same three exploits against both: command injection, tool-description poisoning, and excessive agency on a privileged tool.
+
+The hardened server applies the boring fixes that work: command allowlisting, argument validation, dropping the shell for an argument list, sanitized tool descriptions, policy middleware with human approval, and audit logging. The client prints EXPLOITED, BLOCKED, or AUTHORIZED-via-human for each attack, so you can see each control earn its place.
+
+Repo: `mcp-server-security`.
+
+## 4. Membership inference and four privacy defenses
+
+I implemented a shadow-model membership inference attack (MITRE ATLAS AML.T0024) against an intentionally overfit model, then benchmarked four defenses on the trade-off between attack success and model utility: label smoothing, DP-SGD via Opacus, inference-time output noise, and SISA sharded training for fast machine unlearning.
+
+This is where the "no silver bullet" idea stopped being a slogan. Label smoothing sometimes made leakage worse. DP-SGD defended fully but cost accuracy. SISA was the practical middle ground, and it also enables compliant deletion. You cannot reason about these defenses from a blog post. You have to see the numbers move.
+
+Repo: `membership-inference-attack`.
+
+## 5. Adversarial ML, the full lifecycle
+
+One runnable script, three stages. A data-poisoning attack by label flipping, measuring accuracy degradation as contamination climbs from zero to forty percent. An evasion attack that crafts a tiny, bounded perturbation to flip a correctly classified malignant sample chosen right at the decision boundary. And a Madry-style adversarial-training defense that restores robustness, while quantifying the clean-versus-robust accuracy trade-off.
+
+Everything maps to MITRE ATLAS and the OWASP ML Top 10. Building all three in one place made the relationship between attack and defense obvious in a way separate tutorials never did.
+
+Repo: `adversarial-ml-attacks-defenses`.
+
+## 6. LLM access governance with OPA and garak
+
+Two complementary controls, one preventive and one detective.
+
+The preventive half is an Open Policy Agent policy, written in Rego, that governs who may call which model provider with what data: deny by default, an approved-provider allowlist as a shadow-AI control, department-based access, detectors for sensitive data in prompts, and a cross-border egress block for export-controlled data.
+
+The detective half is a garak configuration that red-teams a local model for prompt injection, jailbreaks, and toxicity. Together they cover both sides of LLM governance, policy enforcement and adversarial measurement, as portable, auditable artifacts.
+
+Repo: `llm-access-governance-opa-garak`.
+
+## 7. AI GRC compliance mapper
+
+Governance falls apart when it lives in spreadsheets. So I built a small, auditable engine that maps implemented AI-security controls to the clauses of three frameworks: ISO/IEC 42001 Annex A, the EU AI Act high-risk articles, and NIST AI RMF.
+
+Controls are declared as data and tagged with the clauses they satisfy. The tool builds the reverse index and prints coverage percentage plus every covered and gap mapping, in a form an auditor can read. The point it proves: every requirement should trace to a concrete technical control, not a paragraph of intent.
+
+Repo: `ai-grc-compliance-mapper`.
+
+## 8. AI code provenance with CI enforcement
+
+As AI writes more of our code, "who wrote this line" becomes a real question. This is an end-to-end provenance system. A git commit-msg hook detects AI authorship markers, writes an append-only record to a ledger with reviewer and scan-elevation flags, and stamps a signed provenance trailer into the commit. A CI validator then fails the build if any AI-attributed commit is missing its ledger-backed trailer.
+
+It addresses EU AI Act Article 12 logging and software supply-chain integrity directly: provenance by construction, not by spreadsheet.
+
+Repo: `ai-code-provenance`.
+
+## What eight labs taught me
+
+A few things repeated across every project.
+
+No single control is enough. In the MCP work, the prompt-injection work, and the privacy work, every individual defense had a blind spot that another defense covered. Layering is not optional.
+
+Defenses must be measured, not assumed. The membership inference and adversarial ML labs only made sense once I watched the trade-offs in numbers. A defense you have not measured is a hope.
+
+Architecture beats filters. The injection attacks all eventually beat pattern-based filters. What held was structural: least privilege, output-channel restriction, provenance, and human gates on consequential actions.
+
+Governance is engineering. The GRC mapper and the provenance system turned compliance from documents into code with a CI gate. That is the version of governance I actually trust.
+
+If you are getting into AI security, do not just read. Build the attack, make it work, then build the defense and measure it. That loop is the fastest way I know to develop real judgment.
+
+---
+
+*Shreyans is a Solution Architect and the founder of [Cyron Intelligence](https://cyronintel.com). The projects above are public on [GitHub](https://github.com/shreyansbhatt). He writes about AI security and offensive security at* [*shreyans.systems*](https://shreyans.systems)*.*

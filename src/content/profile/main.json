@@ -1,7 +1,7 @@
 {
   "name": "Shreyans Bhatt",
-  "title": "Solution Architect | Principal Engineer | CEH Certified",
-  "tagline": "Technical Solutions Architect with 16+ years hands-on leadership in enterprise architecture, AI/ML systems, and offensive cybersecurity. Expert in end-to-end Microsoft/.NET stacks, cloud platforms (Azure/AWS), and high-throughput distributed systems.",
+  "title": "Solution Architect | AI Red Teaming & Offensive Security | CEH Certified",
+  "tagline": "Solution architect and founder of Cyron Intelligence with 16+ years building secure, large-scale systems. I now focus on AI and LLM security: red teaming agentic platforms, defending RAG and MCP, and turning the OWASP LLM Top 10 into working code, not slideware.",
   "email": "tech.shreyans@gmail.com",
   "phone": "+91 9978446088",
   "location": "Ahmedabad, India",
@@ -24,14 +24,19 @@
   },
   "aspirations": [
     {
-      "goal": "Architect AI-powered enterprise platforms at global scale",
+      "goal": "Secure enterprise agentic AI and LLM platforms",
       "timeline": "Immediate",
-      "icon": "🤖"
+      "icon": "🛡️"
     },
     {
-      "goal": "Lead offensive security initiatives for critical infrastructure",
+      "goal": "Red team AI systems before attackers do",
+      "timeline": "Immediate",
+      "icon": "🎯"
+    },
+    {
+      "goal": "Scale Cyron Intelligence into AI-native API defense",
       "timeline": "Strategic",
-      "icon": "🛡️"
+      "icon": "🤖"
     },
     {
       "goal": "Bridge the gap between ML research and production systems",
@@ -39,12 +44,7 @@
       "icon": "🔬"
     },
     {
-      "goal": "Mentor the next generation of solution architects",
-      "timeline": "Strategic",
-      "icon": "👨‍🏫"
-    },
-    {
-      "goal": "Contribute to open-source security tooling",
+      "goal": "Contribute to open-source AI security tooling",
       "timeline": "Visionary",
       "icon": "🔓"
     }

@@ -1,141 +1,55 @@
 {
   "slug": "cyron-intelligence-mvp",
-  "clientName": "Confidential",
-  "displayName": "Confidential",
-  "role": "Security Architect",
+  "clientName": "Cyron Intelligence",
+  "displayName": "Cyron Intelligence",
+  "role": "Founder & Security Product Architect",
   "startDate": "2024-06",
   "endDate": "Present",
-  "engagementType": "Contract",
+  "engagementType": "Permanent",
   "workMode": "Remote",
   "teamSize": 1,
-  "location": "Remote",
-  "isConfidential": true,
+  "location": "EU / Remote",
+  "isConfidential": false,
   "isFeatured": true,
   "isDraft": false,
-  "companyDescription": "Cyron Intelligence is an enterprise-grade API security platform featuring real-time threat detection, machine learning-based traffic analysis, and comprehensive monitoring capabilities. Built as a solo developer demonstrating full-stack security expertise.",
+  "companyDescription": "Cyron Intelligence is a research-led cybersecurity firm building intelligence-driven security for APIs and AI systems. Its flagship product, cyron.io, is an AI-powered API security platform that catches attacks which look like normal traffic. Built by people who attack systems for a living.",
   "techStack": [
-    ".NET 9",
-    "ASP.NET Core",
-    "C#",
-    "Entity Framework Core 9",
-    "Blazor Server",
-    "PostgreSQL",
-    "TimescaleDB",
-    "Redis",
-    "Redis Streams",
-    "Python 3.x",
-    "XGBoost",
-    "LightGBM",
-    "scikit-learn",
-    "ONNX Runtime",
+    "eBPF",
+    "Linux Kernel",
     "Docker",
-    "Docker Compose",
-    "Nginx",
-    "OpenResty",
-    "Lua",
-    "Go (Golang)",
-    "Azure AKS",
-    "Azure Container Apps",
-    "GitHub Actions",
-    "Kubernetes",
-    "Kustomize",
-    "Cloudflare",
-    "JWT Authentication",
-    "HMAC-SHA256",
-    "AES-256-GCM",
-    "BCrypt",
-    "Polly",
-    "Serilog",
-    "Prometheus",
-    "MLflow",
-    "SHAP",
-    "Optuna",
-    "GreyNoise API",
-    "STIX 2.1",
-    "Paddle Billing SDK"
+    "HTTP / REST",
+    "WebSocket",
+    "gRPC",
+    "Protobuf",
+    "Behavioral Anomaly Detection",
+    "LLM Reasoning (System 2 Thinking)",
+    "Threat Intelligence Feeds",
+    "OWASP API Security Top 10",
+    "Webhooks / SIEM Delivery",
+    "EU Data Sovereignty",
+    "On-Premise / White-Label"
   ],
   "skills": [
-    {
-      "name": ".NET 9",
-      "rating": 9
-    },
-    {
-      "name": "ASP.NET Core",
-      "rating": 9
-    },
-    {
-      "name": "C#",
-      "rating": 9
-    },
-    {
-      "name": "Entity Framework Core",
-      "rating": 8
-    },
-    {
-      "name": "Blazor Server",
-      "rating": 8
-    },
-    {
-      "name": "PostgreSQL",
-      "rating": 8
-    },
-    {
-      "name": "Redis",
-      "rating": 8
-    },
-    {
-      "name": "Python ML",
-      "rating": 8
-    },
-    {
-      "name": "XGBoost",
-      "rating": 7
-    },
-    {
-      "name": "ONNX Runtime",
-      "rating": 7
-    },
-    {
-      "name": "Docker",
-      "rating": 9
-    },
-    {
-      "name": "JWT Security",
-      "rating": 8
-    },
-    {
-      "name": "Cryptography",
-      "rating": 8
-    },
-    {
-      "name": "Kubernetes",
-      "rating": 6
-    },
-    {
-      "name": "Go (Golang)",
-      "rating": 6
-    },
-    {
-      "name": "Lua Scripting",
-      "rating": 6
-    },
-    {
-      "name": "Threat Intelligence",
-      "rating": 6
-    }
+    { "name": "API Security", "rating": 10 },
+    { "name": "Security Product Architecture", "rating": 10 },
+    { "name": "eBPF Kernel-Level Tracing", "rating": 9 },
+    { "name": "Behavioral Threat Detection", "rating": 9 },
+    { "name": "LLM Reasoning (System 2 Thinking)", "rating": 9 },
+    { "name": "OWASP API Security Top 10", "rating": 9 },
+    { "name": "Threat Modeling (STRIDE / MAESTRO)", "rating": 9 },
+    { "name": "Offensive Security", "rating": 9 },
+    { "name": "Privacy by Design", "rating": 8 },
+    { "name": "Compliance (ISO 27001 / SOC 2)", "rating": 8 }
   ],
   "achievements": [
-    "Built enterprise-grade API security platform as solo developer demonstrating full-stack expertise",
-    "Implemented real-time threat detection with ML-based traffic analysis achieving sub-50ms latency requirements",
-    "Developed ApplicationCore and AnalysisEngine microservices with Minimal APIs pattern",
-    "Built Blazor Server dashboard with real-time UI and authentication flows",
-    "Designed complex PostgreSQL + TimescaleDB schema for time-series security data",
-    "Implemented Redis Streams for messaging and rate limiting infrastructure",
-    "Created ensemble threat detection models using XGBoost/LightGBM with ONNX cross-platform inference",
-    "Built cyron-agent-nova reverse proxy in Go with inline blocking capability",
-    "Developed cyron-agent-gamma Nginx/Lua module for traffic mirroring",
-    "Implemented zero-trust security patterns with HMAC-SHA256 webhook validation and AES-256-GCM PII encryption",
-    "Set up comprehensive CI/CD pipelines with GitHub Actions for multi-environment deployment",
-    "Integrated GreyNoise API for threat intelligence enrichment with STIX 2.1 indicator management"
-  ]
+    "Founded Cyron Intelligence, a research-led cybersecurity firm, and architected cyron.io, its AI-powered API security platform protecting HTTP, WebSocket, and gRPC traffic.",
+    "Designed the iris agent: a single Docker container that attaches at the Linux kernel using eBPF, auto-discovers live API endpoints, and needs zero code changes or application restarts.",
+    "Built on a 'mirror, never intercept' model so analysis runs out-of-band with no added latency on the live request path, while still allowing kernel-level blocking of confirmed threats.",
+    "Reached roughly 2ms average detection time by learning each API's normal behavior over a 24-hour baseline instead of relying on static signatures.",
+    "Added 'System 2 Thinking', an LLM-based forensic layer that explains every flagged threat in plain English, applied only to ambiguous cases so cost and latency stay low.",
+    "Covered the OWASP API Security Top 10 in practice: BOLA, broken authentication, credential stuffing, JWT attacks, mass assignment, business-logic fraud, and unrestricted resource consumption.",
+    "Shipped privacy by design: raw payloads are never stored, only metadata is extracted then discarded, with EU hosting and on-premise or white-label options for regulated customers.",
+    "Offer security posture assessments and STRIDE / MAESTRO-style threat modeling, plus compliance readiness for ISO 27001, ISO 42001, SOC 2, EU AI Act, NIS2, GDPR, and PCI-DSS 4.0."
+  ],
+  "projectReference": "https://cyron.io"
 }
