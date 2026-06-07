@@ -8,6 +8,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "wrangler pages dev dist",
+    "deploy": "astro build && wrangler pages deploy dist --project-name=shreyans-portfolio --branch=main",
     "astro": "astro",
     "keystatic": "keystatic dev"
   },
