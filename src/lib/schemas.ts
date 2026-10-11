@@ -160,6 +160,7 @@ export const PersonJsonLdSchema = z.object({
   address: z.object({
     '@type': z.literal('PostalAddress'),
     addressLocality: z.string(),
+    addressRegion: z.string().optional(),
     addressCountry: z.string(),
   }),
   makesOffer: z.array(z.object({

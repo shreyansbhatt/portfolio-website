@@ -41,8 +41,8 @@ const blogWithSlug = { slug, ...blog };
 const blogJsonLd = generateBlogPostJsonLd(blogWithSlug, profile?.name || 'Shreyans Bhatt');
 const breadcrumbJsonLd = generateBreadcrumbJsonLd([
   { name: 'Home', url: '/' },
-  { name: 'Blog', url: '/blog' },
-  { name: blog.title, url: `/blog/${blog.slug}` },
+  { name: 'Blog', url: '/blog/' },
+  { name: blog.title, url: `/blog/${blog.slug}/` },
 ]);
 ---
 
@@ -51,14 +51,14 @@ const breadcrumbJsonLd = generateBreadcrumbJsonLd([
   description={blog.seoDescription}
   profile={profile}
   ogImage={blog.coverImage}
-  canonicalUrl={`/blog/${blog.slug}`}
+  canonicalUrl={`/blog/${blog.slug}/`}
   additionalJsonLd={{ ...blogJsonLd, ...breadcrumbJsonLd }}
 >
   <article class="section">
     <div class="container max-w-4xl">
       <!-- Back Link -->
       <a 
-        href="/blog"
+        href="/blog/"
         class="inline-flex items-center gap-2 text-text-muted hover:text-cyan-glow transition-colors mb-8"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -117,7 +117,7 @@ const breadcrumbJsonLd = generateBreadcrumbJsonLd([
           )}
           <div>
             <p class="font-medium text-text-primary">{profile?.name || 'Shreyans Bhatt'}</p>
-            <p class="text-sm text-text-secondary">{profile?.title || 'Solution Architect'}</p>
+            <p class="text-sm text-text-secondary">{profile?.title || 'AI Security Architect & Evaluation Engineer'}</p>
           </div>
         </div>
       </header>
@@ -166,7 +166,7 @@ const breadcrumbJsonLd = generateBreadcrumbJsonLd([
         <div class="flex items-center gap-4">
           <span class="text-text-muted text-sm">Share:</span>
           <a 
-            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(blog.title)}&url=${encodeURIComponent(`https://shreyans.systems/blog/${blog.slug}`)}`}
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(blog.title)}&url=${encodeURIComponent(`https://shreyans.systems/blog/${blog.slug}/`)}`}
             target="_blank"
             rel="noopener noreferrer"
             class="text-text-muted hover:text-cyan-glow transition-colors"
@@ -177,7 +177,7 @@ const breadcrumbJsonLd = generateBreadcrumbJsonLd([
             </svg>
           </a>
           <a 
-            href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://shreyans.systems/blog/${blog.slug}`)}`}
+            href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://shreyans.systems/blog/${blog.slug}/`)}`}
             target="_blank"
             rel="noopener noreferrer"
             class="text-text-muted hover:text-cyan-glow transition-colors"
@@ -189,7 +189,7 @@ const breadcrumbJsonLd = generateBreadcrumbJsonLd([
           </a>
         </div>
         
-        <a href="/blog" class="btn btn-ghost">
+        <a href="/blog/" class="btn btn-ghost">
           ← More Articles
         </a>
       </div>
