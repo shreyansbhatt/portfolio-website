@@ -38,7 +38,7 @@ export default config({
         }),
         title: fields.text({
           label: 'Professional Title',
-          description: 'e.g., "Principal Solution Architect"',
+          description: 'e.g., "AI Security Architect & Evaluation Engineer"',
           validation: { isRequired: true, length: { min: 1, max: 150 } },
         }),
         tagline: fields.text({
