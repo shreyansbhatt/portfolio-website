@@ -8,5 +8,5 @@
   <!-- Background -->
   <rect width="32" height="32" rx="6" fill="#0a192f"/>
   <!-- Terminal bracket -->
-  <text x="6" y="23" font-family="monospace" font-size="18" font-weight="bold" fill="url(#cyber-gradient)">&lt;/&gt;</text>
+  <text x="16" y="21" text-anchor="middle" textLength="24" lengthAdjust="spacingAndGlyphs" font-family="monospace" font-size="14" font-weight="bold" fill="url(#cyber-gradient)">&lt;/&gt;</text>
 </svg>
