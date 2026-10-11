@@ -84,7 +84,7 @@ export const POST: APIRoute = async ({ request }) => {
     // Example with Resend:
     // const resend = new Resend(import.meta.env.RESEND_API_KEY);
     // await resend.emails.send({
-    //   from: 'contact@shreyansbhatt.com',
+    //   from: 'contact@shreyans.systems',
     //   to: 'tech.shreyans@gmail.com',
     //   subject: `Portfolio Contact: ${sanitizedData.subject}`,
     //   html: `...`

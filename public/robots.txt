@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://shreyansbhatt.com/sitemap-index.xml
+Sitemap: https://shreyans.systems/sitemap-index.xml
 
 # Disallow admin routes
 Disallow: /keystatic

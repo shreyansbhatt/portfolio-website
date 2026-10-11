@@ -1,6 +1,6 @@
 import type { Profile, Project, Testimonial, Blog, PersonJsonLd, BlogPostJsonLd } from './schemas';
 
-const SITE_URL = 'https://shreyansbhatt.com';
+const SITE_URL = 'https://shreyans.systems';
 
 /**
  * Generate Person JSON-LD for Schema.org
