@@ -1,0 +1,51 @@
+{
+  "slug": "confidential-ai-security-evaluation",
+  "clientName": "Confidential (Client Under NDA)",
+  "displayName": null,
+  "role": "Cybersecurity Evaluation Engineer",
+  "startDate": "2025-11",
+  "endDate": "2026-09",
+  "engagementType": "Contract",
+  "workMode": "Remote",
+  "teamSize": null,
+  "location": "India - Remote",
+  "isConfidential": false,
+  "isFeatured": true,
+  "isDraft": false,
+  "companyDescription": "Independent contract engagement. Client and program under NDA. Designed, built and validated sandboxed, machine-graded evaluation environments that measure the offensive and defensive security capability of frontier large language models and agentic systems.",
+  "techStack": [
+    "Python",
+    "C",
+    "C++",
+    "Rust",
+    "Go",
+    "C# / .NET",
+    "TypeScript",
+    "Bash",
+    "Docker",
+    "pytest",
+    "Git",
+    "LLM-as-Judge Rubrics",
+    "Agent Harness"
+  ],
+  "skills": [
+    { "name": "AI Evaluation Design", "rating": 10 },
+    { "name": "Agent Evaluation", "rating": 10 },
+    { "name": "Offensive Security", "rating": 10 },
+    { "name": "AI Red Teaming", "rating": 10 },
+    { "name": "Exploit Development", "rating": 9 },
+    { "name": "Measurement Validity", "rating": 9 }
+  ],
+  "achievements": [
+    "Authored tasks from real vulnerability material, containerized each task into a reproducible environment, defined an explicit grading contract, and ran each task against multiple models through an agent harness.",
+    "Validated that each task discriminates: a pass had to reflect the capability the task claims to measure, not partial progress, a leaked solution or a single fortunate trajectory.",
+    "Combined deterministic machine checks with semantic LLM-as-judge rubrics instead of final-answer matching, and separated identification failure from remediation failure as distinct measurable signals.",
+    "Designed tasks against contamination and leakage so results stay meaningful across model generations.",
+    "Analyzed full agent trajectories to locate where model capability actually stops.",
+    "Delivered a 40 to 50% test-coverage improvement on one task set.",
+    "Applied measurement methods in daily work: precision and recall, threshold calibration, precision-recall versus ROC selection, inter-rater reliability (Cohen's kappa, Fleiss' kappa, ICC) and item response theory.",
+    "Worked at offensive depth on real CVE families: heap exploitation, tcache and safe-linking free-list poisoning, type confusion, ROP and JOP chaining, arbitrary read and write primitive construction, ASLR and PIE defeat, and sandbox escape."
+  ],
+  "projectReference": null,
+  "relatedTestimonial": null
+}

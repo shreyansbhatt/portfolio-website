@@ -104,11 +104,10 @@ Normalize company names across documents:
 - "Milestone Inc" → "milestone-schema-manager-2019"
 - "H&R Block India" → "hrblock-silverlight-migration-2017"
 - "XDocWorks (Reeleezee)" / "Reeleezee" → "reeleezee-accounting-2013"
-- "Capital Knovus" / "Logical Software Solution" → "knovos-ediscovery-2012"
+- "Capital Novus" / "Logical Software Solution" → "knovos-ediscovery-2012"
 - "eConsultants Networks" / "eCN India" → "econsultants-erp-2010"
 
 Additional projects from LogicSense:
-- "InstaFlo HealthTech" → "instaflo-healthtech-2022"
 - "ENTERCLINIC" (LogicSense product) → "logicsense-enterclinic-2013"
 
 Side Projects:
@@ -124,7 +123,7 @@ Mark `isFeatured: true` for:
 3. Award-winning projects (H&R Block, UWorld)
 4. AI/ML projects (Milestone Schema Manager)
 5. Security-focused projects (MAS, Cyron)
-6. One early-career highlight (Capital Knovus eDiscovery)
+6. One early-career highlight (Capital Novus eDiscovery)
 
 ---
 
@@ -184,7 +183,6 @@ src/content/
 │   ├── globallogic-wood-mackenzie-2024.json
 │   ├── viseo-mas-2024.json
 │   ├── logicsense-unient-loreal-2021.json
-│   ├── instaflo-healthtech-2022.json
 │   ├── uworld-b2b-2020.json
 │   ├── milestone-schema-manager-2019.json
 │   ├── hrblock-silverlight-migration-2017.json

@@ -28,7 +28,10 @@
     "Azure DevOps",
     "Onion Architecture",
     "Clean Architecture",
-    "Polynomial Regression Model"
+    "Polynomial Regression Model",
+    "mTLS",
+    "Python",
+    "RBAC / Network Policies"
   ],
   "skills": [
     { "name": "Technical Leadership", "rating": 9 },
@@ -40,13 +43,14 @@
     { "name": "Clean Architecture", "rating": 9 }
   ],
   "achievements": [
-    "Received B2B Innovation Award for defining scalable microservices, increasing system reliability by 30%",
-    "Awarded technical lead for organization's most rewarding B2B platform for extraordinary contribution in Test Preparation Interface module",
-    "Executed responsibility for delivering quality features by actively participating in development activities, technical and functional grooming sessions",
-    "Worked on establishing company's first DevOps implementations for different environments leading to production server",
-    "Implemented Onion Architecture and Clean Design code for new microservices-focused API",
-    "Played crucial role in upgrading the technical stack of the product",
-    "Maintained Azure DevOps pipelines for different environments"
+    "Received the B2B Innovation Award for defining scalable microservices, increasing system reliability by 30%.",
+    "Led the migration from a monolithic codebase to a Kubernetes-based microservices architecture, defining service boundaries, gRPC and Protobuf contracts with mTLS, authentication patterns and zero-downtime deployment strategies.",
+    "Built the organization's first CI/CD pipelines with embedded security gates: SAST scanning, dependency vulnerability checks, container image hardening and policy-based deployment controls.",
+    "Hardened Kubernetes deployments with network policies, RBAC and secrets management, and designed identity and access patterns for service-to-service communication.",
+    "Contributed to ML-based cognition matching algorithms for the production test platform, with attention to data integrity and tamper resistance for assessment workflows.",
+    "Awarded technical lead for the organization's most rewarding B2B platform for extraordinary contribution in the Test Preparation Interface module.",
+    "Implemented Onion Architecture and clean design for the new microservices-focused API.",
+    "Played a crucial role in upgrading the technical stack of the product."
   ],
   "projectReference": "https://medical.uworld.com/usmle/usmle-step-1/",
   "relatedTestimonial": null

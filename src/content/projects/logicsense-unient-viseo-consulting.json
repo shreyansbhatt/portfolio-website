@@ -1,10 +1,10 @@
 {
   "slug": "logicsense-unient-viseo-consulting",
-  "clientName": "LogicSense Technologies Pvt Ltd",
+  "clientName": "LogicSense Technologies Private Limited",
   "displayName": "Unient Australia & L'Oreal Singapore (via LogicSense)",
-  "role": "Technical Consultant | Tech Lead",
-  "startDate": "2021-11",
-  "endDate": "2024-04",
+  "role": "Technical Consultant",
+  "startDate": "2021-12",
+  "endDate": "2023-03",
   "engagementType": "Contract",
   "workMode": "Remote",
   "teamSize": 6,
@@ -12,11 +12,10 @@
   "isConfidential": false,
   "isFeatured": true,
   "isDraft": false,
-  "companyDescription": "Multi-client consulting engagement serving OneStop Australia (logistics/security) and L'Oreal Singapore (Beauty Tech platform). Delivered scalable microservices solutions with industry best practices.",
+  "companyDescription": "Cloud-native architecture and security advisory across enterprise clients in multiple geographies, including OneStop Australia (logistics and security) and L'Oreal Singapore (Beauty Tech platform).",
   "techStack": [
     "C#",
     ".NET Core",
-    ".NET 8",
     "AWS SAM",
     "AWS Lambda",
     "AWS SQS",
@@ -34,7 +33,11 @@
     "Apache Kafka",
     "Functional Programming",
     "Domain Driven Design",
-    "Railway-Oriented Programming"
+    "Railway-Oriented Programming",
+    "Azure AKS",
+    "Azure Service Bus",
+    "MongoDB",
+    "Kubernetes"
   ],
   "skills": [
     { "name": ".NET Core", "rating": 10 },
@@ -47,15 +50,15 @@
     { "name": "Azure Kubernetes Service", "rating": 8 }
   ],
   "achievements": [
-    "Architected .NET-based microservices on Azure App Service with Kafka streaming and event-driven design",
-    "Designed and implemented high-performance .NET 8 microservices with Azure Kubernetes Service (AKS) and Kafka event processing",
-    "Spearheaded Beauty Tech Microservice design for L'Oreal, delivering scalable solutions with industry best practices",
-    "Designed scalable product data platform blueprint using microservices and API-first strategy ensuring cross-system consistency across ERP, analytics, and e-commerce",
-    "Built integration pipelines and harmonized product metadata across Azure and AWS services ensuring seamless ingestion and synchronization",
-    "Optimized backend .NET Core APIs and improved Azure Service Bus/Kafka-based messaging performance by 40%",
-    "Implemented functional deliverables using DDD, improving integration with client team achieving 95% success rate",
-    "Achieved positive feedback consistently about superior code quality from client's leadership",
-    "Demonstrated aptitude to learn Domain-Driven-Design, Railway-Oriented Programming, and Functional Programming concepts"
+    "Led a team of 10 building a multi-tenant SaaS test-interface platform, designing the tenant isolation model, role-based access control, audit trails and secure key management.",
+    "Designed and delivered Azure AKS and AWS microservices architectures with event-driven integration (Apache Kafka, Azure Service Bus) and end-to-end encryption.",
+    "Delivered security advisory covering identity, network segmentation and data protection for clients across Australia and the Philippines.",
+    "Established CI/CD pipelines with embedded security gates (SAST, dependency scanning), container hardening practices and shift-left security integration across client engagements.",
+    "Improved Azure Service Bus and Kafka messaging throughput by 40% through event-flow optimization and architectural refinement.",
+    "Spearheaded Beauty Tech microservice design for L'Oreal, delivering scalable solutions with industry best practices.",
+    "Designed a scalable product data platform blueprint using microservices and an API-first strategy, ensuring cross-system consistency across ERP, analytics and e-commerce.",
+    "Built integration pipelines and harmonized product metadata across Azure and AWS services, ensuring seamless ingestion and synchronization.",
+    "Implemented functional deliverables using Domain-Driven Design, improving integration with the client team and achieving a 95% success rate."
   ],
   "projectReference": "https://www.loreal.com/en/singapore/",
   "relatedTestimonial": null

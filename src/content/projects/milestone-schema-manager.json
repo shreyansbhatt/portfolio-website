@@ -2,7 +2,7 @@
   "slug": "milestone-schema-manager",
   "clientName": "Milestone Inc.",
   "displayName": null,
-  "role": "Principal Software Engineer | Tech Lead - Research Specialist",
+  "role": "Principal Software Engineer",
   "startDate": "2019-07",
   "endDate": "2020-06",
   "engagementType": "Permanent",
@@ -12,7 +12,7 @@
   "isConfidential": false,
   "isFeatured": true,
   "isDraft": false,
-  "companyDescription": "Milestone helps companies create, organize, and amplify digital information to enhance client's digital presence. They specialize in SEO, schema markup, and digital marketing solutions for hospitality and enterprise clients.",
+  "companyDescription": "Milestone helps companies create, organize, and amplify digital information to enhance client's digital presence. They specialize in SEO, schema markup, and digital marketing solutions for hospitality and enterprise clients. Joined as Senior Software Engineer in July 2019 in a research and prototyping role, and was promoted to Principal Software Engineer in March 2020 as founding technical lead for the NLP product line.",
   "techStack": [
     "Python 2.7",
     "Python 3.x",
@@ -56,7 +56,9 @@
     "Ensured high levels of quality in implemented code by following best practices for microservices and cloud-based scalability",
     "Architected scalable pipeline using Python, NLP, Scrapy, Azure PaaS, and CosmosDB",
     "Applied ANN/CNN models to support multilingual rendering across web and voice interfaces",
-    "Performed task breakups, communicated timeframes with estimations, and mentored team members as technical lead"
+    "Performed task breakups, communicated timeframes with estimations, and mentored team members as technical lead",
+    "Designed metadata-driven NLP pipelines with input sanitization, PII detection patterns and secure data ingestion.",
+    "Owned engineering hiring, mentoring and technical standards for the new function, with security review as a default step in design and code review."
   ],
   "projectReference": "https://www.milestoneinternet.com/products/schema-manager",
   "relatedTestimonial": null

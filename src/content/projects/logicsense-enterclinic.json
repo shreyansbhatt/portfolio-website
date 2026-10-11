@@ -2,17 +2,17 @@
   "slug": "logicsense-enterclinic",
   "clientName": "LogicSense Technologies Private Limited",
   "displayName": "EnterClinic - Electronic Medical Records",
-  "role": "Technology Solution Architect",
+  "role": "Founder & Director | Principal AI Security Architect",
   "startDate": "2013-11",
-  "endDate": "2017-04",
+  "endDate": "Present",
   "engagementType": "Permanent",
   "workMode": "Onsite",
   "teamSize": 10,
   "location": "Rajkot, India",
   "isConfidential": false,
-  "isFeatured": false,
+  "isFeatured": true,
   "isDraft": false,
-  "companyDescription": "LogicSense Technologies is a product-based company focused on Electronic Medical Records management. They provide cutting-edge technology solutions for healthcare providers including clinics and hospitals.",
+  "companyDescription": "LogicSense Technologies is the product-first software, cybersecurity and AI engineering company I founded in Rajkot in 2013. As Director I set the company's direction, lead client engagements and architect the products. Cyron Intelligence, the cybersecurity division founded in 2024, and EnterClinic, the healthcare platform, are both built under LogicSense.",
   "techStack": [
     "C#",
     "ASP.NET",
@@ -30,28 +30,30 @@
     "SOAP",
     "SQL Server",
     "TCP/IP Networking",
-    "jQuery"
+    "jQuery",
+    "eBPF",
+    "ONNX",
+    "MCP / A2A"
   ],
   "skills": [
     { "name": "Solution Architecture", "rating": 9 },
     { "name": "Android SDK", "rating": 8 },
     { "name": "Windows SDK", "rating": 8 },
     { "name": "WCF Services", "rating": 9 },
-    { "name": "Azure Notification Hubs", "rating": 7 },
+    { "name": "Security Practice Leadership", "rating": 9 },
     { "name": "Cross-Platform Development", "rating": 8 },
     { "name": "Healthcare Domain", "rating": 8 },
     { "name": "Team Leadership", "rating": 8 }
   ],
   "achievements": [
-    "Transformed legacy product to Microservice architecture with full ownership of technical components",
-    "Took full ownership of .NET-based and open-source integration with migration plans",
-    "Implemented Android mobile application using Android SDK for API level 29 with stylus pen support for handwritten doctor's prescriptions",
-    "Developed automated facial detection through web camera integration using Windows SDK for in-patient enrollment feature",
-    "Designed robust, reusable and secure workflows for maintaining highly integrated medical records",
-    "Executed plan for systematic upgradations addressing trade-offs from MVP release phase",
-    "Demonstrated high degree of professionalism by achieving quality implementations on pre-decided time",
-    "Handled team of 10 members consisting of Senior and Junior engineers covering all aspects of SDLC and release management"
+    "Cyron Intelligence: founded and architected an API and AI security platform with an eBPF kernel sensor, an ONNX detection ensemble and a fine-tuned LLM reasoning layer, alongside air-gapped MCP and A2A agent security and evidence tooling for the EU AI Act and ISO/IEC 42001.",
+    "Security practice leadership: Cybersecurity Head for Cizotech on a long-term consulting basis, owning candidate evaluation, proposals and RFP responses, service design and technical standards.",
+    "EnterClinic: built an integrated online clinic connecting patients, doctors and pharmacies, leading a team of ten through the full product lifecycle. The next generation of EnterClinic is launching at enter.clinic.",
+    "EnterClinic engineering: moved the legacy product to a microservice architecture, built an Android application with stylus support for handwritten prescriptions, and added automated facial detection through web camera integration for in-patient enrollment.",
+    "Antara Capital: delivered a compliance-first website for a SEBI-registered stock broker, with a complete first version in three days.",
+    "Commercial leadership: scoping, pricing and negotiating B2B agreements with international clients, including liability, insurance and IP protection terms.",
+    "Services: penetration testing, API and AI security, LLM red teaming, EU AI Act readiness, solution architecture, legacy modernization, AI engineering and full-stack development for clients in India, Australia, Europe and the United States."
   ],
-  "projectReference": "https://www.enterclinic.com",
+  "projectReference": "https://www.logicsensetech.net",
   "relatedTestimonial": null
 }

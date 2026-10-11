@@ -1,10 +1,10 @@
 {
   "name": "Shreyans Bhatt",
-  "title": "Solution Architect | AI Red Teaming & Offensive Security | CEH Certified",
-  "tagline": "Solution architect and founder of Cyron Intelligence with 16+ years building secure, large-scale systems. I now focus on AI and LLM security: red teaming agentic platforms, defending RAG and MCP, and turning the OWASP LLM Top 10 into working code, not slideware.",
+  "title": "AI Security Architect & Evaluation Engineer | LLM Red Teaming | CEH v13",
+  "tagline": "AI security architect and evaluation engineer with 16 years of production engineering, and founder of Cyron Intelligence. I measure whether AI systems are actually secure, not whether they look secure: LLM red teaming, agent evaluation, MCP and prompt-injection defense.",
   "email": "tech.shreyans@gmail.com",
   "phone": "+91 9978446088",
-  "location": "Ahmedabad, India",
+  "location": "Rajkot, Gujarat, India",
   "timezone": "UTC+5:30",
   "availabilityStatus": "Available",
   "openTo": [
@@ -24,7 +24,7 @@
   },
   "aspirations": [
     {
-      "goal": "Secure enterprise agentic AI and LLM platforms",
+      "goal": "Measuring whether AI systems are actually secure",
       "timeline": "Immediate",
       "icon": "🛡️"
     },

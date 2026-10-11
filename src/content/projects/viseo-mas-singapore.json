@@ -2,8 +2,8 @@
   "slug": "viseo-mas-singapore",
   "clientName": "Viseo Asia Pte Ltd",
   "displayName": "Monetary Authority of Singapore (via Viseo)",
-  "role": "Technical Architect | Lead",
-  "startDate": "2024-04",
+  "role": "Technical Lead",
+  "startDate": "2023-03",
   "endDate": "2024-08",
   "engagementType": "Contract",
   "workMode": "Remote",
@@ -12,7 +12,7 @@
   "isConfidential": false,
   "isFeatured": true,
   "isDraft": false,
-  "companyDescription": "The Monetary Authority of Singapore (MAS) is the central bank and financial regulatory authority of Singapore. This project focused on the Fund Tax Incentive Scheme for Family Offices.",
+  "companyDescription": "Technical lead and architect on a Monetary Authority of Singapore (MAS) engagement, delivered under the IM8 government security standard inside Singapore's Government Commercial Cloud. MAS is the central bank and financial regulatory authority of Singapore. The project covered the Fund Tax Incentive Scheme for Family Offices.",
   "techStack": [
     "C#",
     ".NET 8",
@@ -37,7 +37,10 @@
     "MSTest",
     "NexusIQ",
     "Microsoft Rules Engine",
-    "Draw.io"
+    "Draw.io",
+    "Node.js",
+    "Singapore GCC",
+    "IM8 Controls"
   ],
   "skills": [
     { "name": "Technical Architecture", "rating": 10 },
@@ -52,14 +55,15 @@
     { "name": "Release Management", "rating": 8 }
   ],
   "achievements": [
-    "Laid foundation of robust and reusable backend components and design patterns by creating Microservices decomposition and communication diagrams",
-    "Defined branching strategies and proposed High-Level Architecture Designs adhering to Singapore government's high-security standards—IM8 and OWASP",
-    "Actively participated in project steering committee guiding technical course through backlog grooming sessions and estimations",
-    "Mentored 5+ developers, improving code quality by 20% and reducing feature delivery times by 25%",
-    "Developed critical algorithms achieving 98% project functionality within deadlines, gaining client trust",
-    "Designed database structure for all microservices and oversaw implementation",
-    "Optimized backend-React integration, reducing API response time by 40% through efficient data flow strategies",
-    "Maintained and enriched team's technical documentation for faster onboarding using Confluence"
+    "Defined the microservices architecture and domain-driven design boundaries for a greenfield platform in a regulated, audited environment with formal data-handling obligations and external review.",
+    "Owned application security across the build: authentication and authorization patterns, data classification handling, secure configuration, and compliance evidence against IM8 controls.",
+    "Established and ran the secure design review process for the team, embedding threat modeling into architecture decisions instead of adding it before release.",
+    "Defined branching strategies and proposed high-level architecture designs adhering to Singapore government security standards, IM8 and OWASP.",
+    "Stayed hands-on across .NET and Node.js while mentoring 5+ developers on secure coding and architectural reasoning, improving code quality by 20% and reducing feature delivery times by 25%.",
+    "Guided the technical course in the project steering committee through backlog grooming sessions and estimations.",
+    "Developed critical algorithms achieving 98% project functionality within deadlines, gaining client trust.",
+    "Designed the database structure for all microservices and oversaw implementation.",
+    "Optimized backend-React integration, reducing API response time by 40% through efficient data flow strategies."
   ],
   "projectReference": "https://www.mas.gov.sg/schemes-and-initiatives/fund-tax-incentive-scheme-for-family-offices",
   "relatedTestimonial": null

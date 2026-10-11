@@ -2,8 +2,8 @@
   "slug": "cyron-intelligence-mvp",
   "clientName": "Cyron Intelligence",
   "displayName": "Cyron Intelligence",
-  "role": "Founder & Security Product Architect",
-  "startDate": "2024-06",
+  "role": "Founder",
+  "startDate": "2024-09",
   "endDate": "Present",
   "engagementType": "Permanent",
   "workMode": "Remote",
@@ -12,7 +12,7 @@
   "isConfidential": false,
   "isFeatured": true,
   "isDraft": false,
-  "companyDescription": "Cyron Intelligence is a research-led cybersecurity firm building intelligence-driven security for APIs and AI systems. Its flagship product, cyron.io, is an AI-powered API security platform that catches attacks which look like normal traffic. Built by people who attack systems for a living.",
+  "companyDescription": "Cyron Intelligence is the cybersecurity product division of LogicSense Technologies, founded in 2024. It builds three products on one loop: see what runs, measure what it does, prove what happened. Cyron API Security (cyron.io) is an AI-native API security platform that catches attacks which look like normal traffic. Cyron AI Security protects AI agents at the MCP and A2A boundary. Cyron AI Compliance, in development, maps measured evidence to the EU AI Act and ISO/IEC 42001.",
   "techStack": [
     "eBPF",
     "Linux Kernel",
@@ -27,7 +27,12 @@
     "OWASP API Security Top 10",
     "Webhooks / SIEM Delivery",
     "EU Data Sovereignty",
-    "On-Premise / White-Label"
+    "On-Premise / White-Label",
+    "ONNX",
+    "vLLM",
+    "llama.cpp",
+    "LoRA / QLoRA (Unsloth)",
+    "MCP / A2A"
   ],
   "skills": [
     { "name": "API Security", "rating": 10 },
@@ -42,14 +47,15 @@
     { "name": "Compliance (ISO 27001 / SOC 2)", "rating": 8 }
   ],
   "achievements": [
-    "Founded Cyron Intelligence, a research-led cybersecurity firm, and architected cyron.io, its AI-powered API security platform protecting HTTP, WebSocket, and gRPC traffic.",
-    "Designed the iris agent: a single Docker container that attaches at the Linux kernel using eBPF, auto-discovers live API endpoints, and needs zero code changes or application restarts.",
-    "Built on a 'mirror, never intercept' model so analysis runs out-of-band with no added latency on the live request path, while still allowing kernel-level blocking of confirmed threats.",
+    "Founded Cyron Intelligence and designed and built its AI-native API and AI security platform end to end, covering REST, gRPC and WebSocket traffic with no production code changes and no added latency.",
+    "Designed the iris agent: a single Docker container that attaches at the Linux kernel using eBPF (TC, kprobes, uprobes), auto-discovers live API endpoints, and needs zero code changes or application restarts.",
+    "Built on a \"mirror, never intercept\" model so analysis runs out-of-band with no added latency on the live request path, while still allowing kernel-level blocking of confirmed threats.",
+    "Fed kernel telemetry into an ONNX detection ensemble and a fine-tuned LLM reasoning layer, \"System 2 Thinking\", which explains each flagged threat in plain English and runs only on ambiguous cases so cost and latency stay low.",
     "Reached roughly 2ms average detection time by learning each API's normal behavior over a 24-hour baseline instead of relying on static signatures.",
-    "Added 'System 2 Thinking', an LLM-based forensic layer that explains every flagged threat in plain English, applied only to ambiguous cases so cost and latency stay low.",
-    "Covered the OWASP API Security Top 10 in practice: BOLA, broken authentication, credential stuffing, JWT attacks, mass assignment, business-logic fraud, and unrestricted resource consumption.",
-    "Shipped privacy by design: raw payloads are never stored, only metadata is extracted then discarded, with EU hosting and on-premise or white-label options for regulated customers.",
-    "Offer security posture assessments and STRIDE / MAESTRO-style threat modeling, plus compliance readiness for ISO 27001, ISO 42001, SOC 2, EU AI Act, NIS2, GDPR, and PCI-DSS 4.0."
+    "Covered broken object and function level authorization (BOLA, BFLA, IDOR), broken authentication, credential stuffing, JWT attacks, mass assignment, business-logic fraud, personal-data exfiltration, prompt injection and tool abuse.",
+    "Deployed self-hosted open-weight models: vLLM and llama.cpp serving, LoRA and QLoRA fine-tuning with Unsloth, and evaluation gates before any model version is promoted.",
+    "Built Cyron AI Security: agent boundary protection for MCP and A2A that inspects tool lists, tool calls and tool responses, blocks named threat classes, records each detection as evidence classified to the OWASP LLM and Agentic Top 10, and runs fully air-gapped.",
+    "Built a compliance module that maps platform behavior to GDPR, the EU AI Act, ISO/IEC 42001 and NIST AI RMF and produces evidence artifacts instead of checklists, alongside consulting on security posture assessment, threat modeling and compliance readiness."
   ],
   "projectReference": "https://cyron.io"
 }

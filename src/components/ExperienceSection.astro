@@ -9,8 +9,11 @@ interface Props {
 
 const { id, projects } = Astro.props;
 
-// Sort projects by start date (newest first)
-const sortedProjects = [...projects].sort((a, b) => b.startDate.localeCompare(a.startDate));
+// Sort current projects first, then by end date, then start date (newest first)
+const sortedProjects = [...projects].sort((a, b) =>
+  Number(b.endDate === 'Present') - Number(a.endDate === 'Present') ||
+  b.endDate.localeCompare(a.endDate) ||
+  b.startDate.localeCompare(a.startDate));
 ---
 
 <section id={id} class="section bg-depths/30">
@@ -24,7 +27,7 @@ const sortedProjects = [...projects].sort((a, b) => b.startDate.localeCompare(a.
         Experience
       </h2>
       <p class="text-text-secondary max-w-2xl mx-auto">
-        16+ years of architecting scalable systems across enterprise, fintech, healthcare, and cybersecurity domains.
+        16 years as developer, technical lead, technical architect, solution architect and founder, across enterprise, central-bank, healthcare and cybersecurity systems.
       </p>
     </div>
     
